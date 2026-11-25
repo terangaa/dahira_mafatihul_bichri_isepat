@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestion des membres | Dahira MB</title>
+
+    <!-- Tes CSS existants -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/members.css">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">MB</div>
+                <div class="brand-text">
+                    <h2>Dahira MB</h2>
+                    <span>Touba ISEPAT</span>
+                </div>
+            </div>
+
+            <div class="sidebar-label">MENU PRINCIPAL</div>
+
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-link">
+                    <span class="nav-icon">⌂</span>
+                    <span>Tableau de bord</span>
+                </a>
+                <a href="members.html" class="nav-link active">
+                    <span class="nav-icon">♙</span>
+                    <span>Membres</span>
+                </a>
+                <a href="commissions.html" class="nav-link">
+                    <span class="nav-icon">▦</span>
+                    <span>Commissions</span>
+                </a>
+                <a href="events.html" class="nav-link">
+                    <span class="nav-icon">▣</span>
+                    <span>Événements</span>
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <span class="nav-icon">◇</span>
+                    <span>Projets</span>
+                </a>
+                <a href="finance.html" class="nav-link">
+                    <span class="nav-icon">₣</span>
+                    <span>Finances</span>
+                </a>
+                <a href="history.html" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Historique</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-message">
+                    <span class="message-icon">✦</span>
+                    <p>La régularité construit les grandes choses.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="page-header">
+                <div class="header-content">
+                    <div class="breadcrumb">
+                        <span>Administration</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <strong>Membres</strong>
+                    </div>
+
+                    <div class="page-title-row">
+                        <div>
+                            <div class="title-indicator">
+                                <span class="title-dot"></span>
+                                GESTION DE LA COMMUNAUTÉ
+                            </div>
+                            <h1>Gestion des membres</h1>
+                            <p class="page-subtitle">
+                                Consultez, organisez et gérez les membres du Dahira.
+                            </p>
+                        </div>
+
+                        <button type="button" id="add-member-button" class="btn-primary">
+                            <span class="button-icon">＋</span>
+                            Ajouter un membre
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MESSAGE -->
+            <div id="app-message" class="app-message"></div>
+
+            <!-- STATISTIQUES -->
+            <section class="stats-grid">
+                <article class="stat-card stat-blue">
+                    <div class="stat-card-top">
+                        <div class="stat-icon">♙</div>
+                        <span class="stat-label">Effectif total</span>
+                    </div>
+                    <div class="stat-information">
+                        <h2 id="total-members">0</h2>
+                        <p>Membres enregistrés</p>
+                    </div>
+                    <div class="stat-decoration"></div>
+                </article>
+
+                <article class="stat-card stat-green">
+                    <div class="stat-card-top">
+                        <div class="stat-icon">✓</div>
+                        <span class="stat-label">Membres actifs</span>
+                    </div>
+                    <div class="stat-information">
+                        <h2 id="active-members">0</h2>
+                        <p>Membres actifs</p>
+                    </div>
+                    <div class="stat-decoration"></div>
+                </article>
+
+                <article class="stat-card stat-orange">
+                    <div class="stat-card-top">
+                        <div class="stat-icon">◷</div>
+                        <span class="stat-label">Membres inactifs</span>
+                    </div>
+                    <div class="stat-information">
+                        <h2 id="inactive-members">0</h2>
+                        <p>Membres inactifs</p>
+                    </div>
+                    <div class="stat-decoration"></div>
+                </article>
+
+                <article class="stat-card stat-purple">
+                    <div class="stat-card-top">
+                        <div class="stat-icon">▦</div>
+                        <span class="stat-label">Commissions</span>
+                    </div>
+                    <div class="stat-information">
+                        <h2 id="total-commissions">0</h2>
+                        <p>Commissions disponibles</p>
+                    </div>
+                    <div class="stat-decoration"></div>
+                </article>
+            </section>
+
+            <!-- LISTE DES MEMBRES -->
+            <section class="members-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon">♙</div>
+                        <div>
+                            <h2>Liste des membres</h2>
+                            <p>Retrouvez et gérez les informations des membres.</p>
+                        </div>
+                    </div>
+
+                    <button type="button" id="refresh-members" class="btn-refresh">
+                        <span>↻</span>
+                        Actualiser
+                    </button>
+                </div>
+
+                <!-- FILTRES -->
+                <div class="filters-panel">
+                    <div class="filters-heading">
+                        <span>⌕</span>
+                        Recherche et filtres
+                    </div>
+
+                    <div class="filters-grid">
+                        <div class="filter-group search-group">
+                            <label for="member-search">Rechercher un membre</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">⌕</span>
+                                <input type="search" id="member-search" placeholder="Nom, prénom ou téléphone...">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="status-filter">Statut</label>
+                            <select id="status-filter">
+                                <option value="">Tous les statuts</option>
+                                <option value="ACTIVE">Actif</option>
+                                <option value="INACTIVE">Inactif</option>
+                                <option value="PENDING">En attente</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="commission-filter">Commission</label>
+                            <select id="commission-filter">
+                                <option value="">Toutes les commissions</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLEAU -->
+                <div class="table-container">
+                    <table class="members-table">
+                        <thead>
+                            <tr>
+                                <th>MEMBRE</th>
+                                <th>TÉLÉPHONE</th>
+                                <th>COMMISSION</th>
+                                <th>FILIÈRE</th>
+                                <th>PROMOTION</th>
+                                <th>STATUT</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="members-table-body">
+                            <tr>
+                                <td colspan="7" class="loading-cell">
+                                    Chargement des membres...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="empty-members" class="empty-state" style="display:none;">
+                        <div class="empty-icon">♙</div>
+                        <h3>Aucun membre trouvé</h3>
+                        <p>Aucun membre ne correspond aux critères de recherche.</p>
+                    </div>
+                </div>
+
+                <!-- FOOTER TABLEAU -->
+                <div class="table-footer">
+                    <div class="table-footer-left">
+                        <span class="footer-status-dot"></span>
+                        <span id="members-count">0 membre(s)</span>
+                    </div>
+                    <span class="footer-description">
+                        Gestion des membres du Dahira
+                    </span>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>© Dahira Mafatihoul Bichri — Touba ISEPAT de Diamniadio</span>
+                <span>Plateforme de gestion communautaire</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- MODALE AJOUT / MODIFICATION MEMBRE -->
+    <div id="member-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">GESTION DES INFORMATIONS</span>
+                    <h2>Informations du membre</h2>
+                    <p>Renseignez les informations personnelles du membre.</p>
+                </div>
+                <button type="button" class="modal-close" data-close="member-modal">×</button>
+            </div>
+
+            <form id="member-form">
+                <input type="hidden" id="member-id">
+                <div class="form-section-title">Informations personnelles</div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Prénom *</label>
+                        <input type="text" id="firstName" required placeholder="Prénom">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nom *</label>
+                        <input type="text" id="lastName" required placeholder="Nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" required placeholder="Numéro de téléphone">
+                    </div>
+                    <div class="form-group">
+                        <label for="commission">Commission</label>
+                        <select id="commission">
+                            <option value="">Sélectionner une commission</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filiere">Filière</label>
+                        <input type="text" id="filiere" placeholder="Ex : DBE, EMA...">
+                    </div>
+                    <div class="form-group">
+                        <label for="promotion">Promotion</label>
+                        <input type="text" id="promotion" placeholder="Ex : Promotion 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="registration-date">Date d'inscription</label>
+                        <input type="date" id="registration-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-status">Statut</label>
+                        <select id="member-status">
+                            <option value="ACTIVE">Actif</option>
+                            <option value="INACTIVE">Inactif</option>
+                            <option value="PENDING">En attente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" data-close="member-modal">Annuler</button>
+                    <button type="submit" id="save-member-button" class="btn-primary">Enregistrer le membre</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODALE GESTION DU COMPTE -->
+    <div id="account-modal" class="modal-overlay">
+        <div class="modal-card account-modal-card">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">ADMINISTRATION</span>
+                    <h2>Gestion du compte</h2>
+                    <p>Configuration de l'accès à la plateforme.</p>
+                </div>
+                <button type="button" class="modal-close" data-close="account-modal">×</button>
+            </div>
+
+            <form id="account-form">
+                <input type="hidden" id="account-member-id">
+                <div class="account-member-box">
+                    <div class="account-avatar">♙</div>
+                    <div>
+                        <span>Membre concerné</span>
+                        <strong id="account-member-name">Nom du membre</strong>
+                    </div>
+                </div>
+
+                <div class="form-section-title">Informations de connexion</div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="account-email">Adresse e-mail *</label>
+                        <input type="email" id="account-email" required placeholder="exemple@email.com">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="account-password">Mot de passe</label>
+                        <input type="password" id="account-password" placeholder="Saisir un mot de passe">
+                        <small id="password-help">Laissez vide si vous ne souhaitez pas modifier le mot de
+                            passe.</small>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="account-role">Rôle du compte</label>
+                        <select id="account-role">
+                            <option value="MEMBER">Membre</option>
+                            <option value="ADMIN">Administrateur</option>
+                        </select>
+                    </div>
+                    <div id="admin-role-container" class="form-group full-width">
+                        <label for="admin-role">Rôle administratif</label>
+                        <select id="admin-role">
+                            <option value="ADMINISTRATEUR">Administrateur</option>
+                            <option value="TRESORIER">Trésorier</option>
+                            <option value="ADMIN_PRINCIPAL">Administrateur principal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" data-close="account-modal">Annuler</button>
+                    <button type="submit" id="save-account-button" class="btn-primary">Enregistrer le compte</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/members.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1261cf">
+
+    <title>Administration principale | Dahira Mafatihoul Bichri</title>
+
+    <link rel="icon" href="/image.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/admin-principal-dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-logo">
+                    <img src="/image.png" alt="Logo Dahira">
+                </div>
+
+                <div class="brand-text">
+                    <strong>Dahira MB</strong>
+                    <span>Touba ISEPAT</span>
+                </div>
+
+            </div>
+
+            <div class="sidebar-profile">
+
+                <div class="profile-avatar">AP</div>
+
+                <div class="profile-details">
+                    <strong>Administrateur principal</strong>
+                    <span>Accès complet</span>
+                </div>
+
+            </div>
+
+            <nav class="sidebar-navigation">
+
+                <p class="navigation-label">MENU PRINCIPAL</p>
+
+                <a href="/pages/admin-principal-dashboard.html" class="nav-link active">
+                    <span class="nav-icon">▦</span>
+                    <span>Vue d'ensemble</span>
+                </a>
+
+                <a href="/pages/membership-requests.html" class="nav-link">
+                    <span class="nav-icon">✉</span>
+                    <span>Demandes d'adhésion</span>
+                </a>
+
+                <a href="/pages/members.html" class="nav-link">
+                    <span class="nav-icon">♙</span>
+                    <span>Membres</span>
+                </a>
+
+                <a href="/pages/commissions.html" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>Commissions</span>
+                </a>
+
+                <a href="/pages/events.html" class="nav-link">
+                    <span class="nav-icon">▦</span>
+                    <span>Événements</span>
+                </a>
+
+                <a href="/pages/projects.html" class="nav-link">
+                    <span class="nav-icon">◈</span>
+                    <span>Projets</span>
+                </a>
+
+                <p class="navigation-label">GESTION FINANCIÈRE</p>
+
+                <a href="/pages/finance.html" class="nav-link">
+                    <span class="nav-icon">₣</span>
+                    <span>Finances</span>
+                </a>
+
+                <a href="/pages/monthly-payments.html" class="nav-link">
+                    <span class="nav-icon">▣</span>
+                    <span>Cotisations</span>
+                </a>
+
+                <a href="/pages/contributions.html" class="nav-link">
+                    <span class="nav-icon">＋</span>
+                    <span>Contributions</span>
+                </a>
+
+                <p class="navigation-label">ADMINISTRATION</p>
+
+                <a href="/pages/admin-accounts.html" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    <span>Comptes administrateurs</span>
+                </a>
+
+                <a href="/pages/history.html" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Historique</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-security">
+                    <span>✓</span>
+                    <div>
+                        <strong>Espace sécurisé</strong>
+                        <small>Administration principale</small>
+                    </div>
+                </div>
+
+                <button id="logoutButton" class="logout-button">
+                    <span>↪</span>
+                    Déconnexion
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENU PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button id="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu">
+                        ☰
+                    </button>
+
+                    <div>
+                        <span class="breadcrumb">Administration /</span>
+                        <h1>Tableau de bord</h1>
+                    </div>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="online-indicator">
+                        <span></span>
+                        Système actif
+                    </div>
+
+                    <div class="topbar-user">
+                        <div class="user-avatar">AP</div>
+
+                        <div class="user-info">
+                            <strong>Administrateur principal</strong>
+                            <span id="adminEmail">Chargement...</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <section class="page-content">
+
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="section-eyebrow">ESPACE ADMINISTRATIF</p>
+
+                        <h2>Bienvenue dans votre espace de gestion.</h2>
+
+                        <p>
+                            Retrouvez ici les indicateurs essentiels du
+                            Dahira Mafatihoul Bichri.
+                        </p>
+                    </div>
+
+                    <button id="refreshButton" class="refresh-button">
+                        <span>↻</span>
+                        Actualiser les données
+                    </button>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+                <div id="dashboardMessage" class="dashboard-message"></div>
+
+
+                <!-- STATISTIQUES -->
+                <section class="section-block">
+
+                    <div class="section-heading">
+                        <div>
+                            <h3>Vue générale</h3>
+                            <p>Situation actuelle de la plateforme</p>
+                        </div>
+                    </div>
+
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card blue-card">
+
+                            <div class="stat-top">
+                                <span class="stat-label">Total des membres</span>
+                                <span class="stat-icon">♙</span>
+                            </div>
+
+                            <strong id="membersCount" class="stat-value">--</strong>
+
+                            <span class="stat-description">
+                                Membres enregistrés
+                            </span>
+
+                        </article>
+
+
+                        <article class="stat-card purple-card">
+
+                            <div class="stat-top">
+                                <span class="stat-label">Commissions</span>
+                                <span class="stat-icon">▤</span>
+                            </div>
+
+                            <strong id="commissionsCount" class="stat-value">--</strong>
+
+                            <span class="stat-description">
+                                Commissions enregistrées
+                            </span>
+
+                        </article>
+
+
+                        <article class="stat-card orange-card">
+
+                            <div class="stat-top">
+                                <span class="stat-label">Événements</span>
+                                <span class="stat-icon">▦</span>
+                            </div>
+
+                            <strong id="eventsCount" class="stat-value">--</strong>
+
+                            <span class="stat-description">
+                                Événements enregistrés
+                            </span>
+
+                        </article>
+
+
+                        <article class="stat-card green-card">
+
+                            <div class="stat-top">
+                                <span class="stat-label">Projets</span>
+                                <span class="stat-icon">◈</span>
+                            </div>
+
+                            <strong id="projectsCount" class="stat-value">--</strong>
+
+                            <span class="stat-description">
+                                Projets enregistrés
+                            </span>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FINANCES -->
+                <section class="section-block">
+
+                    <div class="section-heading">
+                        <div>
+                            <h3>Situation financière</h3>
+                            <p>Suivi des cotisations et des contributions</p>
+                        </div>
+
+                        <span class="financial-badge">
+                            Montants en FCFA
+                        </span>
+
+                    </div>
+
+
+                    <div class="financial-total-card">
+
+                        <div>
+                            <span>Total financier encaissé</span>
+
+                            <h2 id="totalFinancial">0 FCFA</h2>
+
+                            <p>
+                                Cotisations mensuelles + contributions
+                            </p>
+                        </div>
+
+                        <div class="financial-total-icon">
+                            ₣
+                        </div>
+
+                    </div>
+
+
+                    <div class="financial-grid">
+
+                        <article class="financial-card">
+
+                            <div class="financial-card-header">
+                                <div class="financial-icon collected">↗</div>
+                                <span>Cotisations encaissées</span>
+                            </div>
+
+                            <strong id="collectedMonthlyPayments">
+                                0 FCFA
+                            </strong>
+
+                            <small>Montant effectivement payé</small>
+
+                        </article>
+
+
+                        <article class="financial-card">
+
+                            <div class="financial-card-header">
+                                <div class="financial-icon remaining">◷</div>
+                                <span>Cotisations restantes</span>
+                            </div>
+
+                            <strong id="remainingMonthlyPayments">
+                                0 FCFA
+                            </strong>
+
+                            <small>Montant restant à collecter</small>
+
+                        </article>
+
+
+                        <article class="financial-card">
+
+                            <div class="financial-card-header">
+                                <div class="financial-icon collected">↗</div>
+                                <span>Contributions encaissées</span>
+                            </div>
+
+                            <strong id="collectedContributions">
+                                0 FCFA
+                            </strong>
+
+                            <small>Montant effectivement payé</small>
+
+                        </article>
+
+
+                        <article class="financial-card">
+
+                            <div class="financial-card-header">
+                                <div class="financial-icon remaining">◷</div>
+                                <span>Contributions restantes</span>
+                            </div>
+
+                            <strong id="remainingContributions">
+                                0 FCFA
+                            </strong>
+
+                            <small>Montant restant à collecter</small>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACCÈS RAPIDES -->
+                <section class="section-block">
+
+                    <div class="section-heading">
+                        <div>
+                            <h3>Accès rapides</h3>
+                            <p>Accédez directement aux principales fonctionnalités</p>
+                        </div>
+                    </div>
+
+
+                    <div class="quick-access-grid">
+
+                        <a href="/pages/members.html" class="quick-card">
+                            <span class="quick-icon blue">♙</span>
+                            <div>
+                                <strong>Gestion des membres</strong>
+                                <small>Consulter et gérer les membres</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+
+                        <a href="/pages/commissions.html" class="quick-card">
+                            <span class="quick-icon purple">▤</span>
+                            <div>
+                                <strong>Commissions</strong>
+                                <small>Organiser les commissions</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+
+                        <a href="/pages/events.html" class="quick-card">
+                            <span class="quick-icon orange">▦</span>
+                            <div>
+                                <strong>Événements</strong>
+                                <small>Gérer les activités du Dahira</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+
+                        <a href="/pages/projects.html" class="quick-card">
+                            <span class="quick-icon green">◈</span>
+                            <div>
+                                <strong>Projets</strong>
+                                <small>Suivre les projets</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+
+                        <a href="/pages/finance.html" class="quick-card">
+                            <span class="quick-icon blue">₣</span>
+                            <div>
+                                <strong>Gestion financière</strong>
+                                <small>Consulter les finances</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+
+                        <a href="/pages/admin-accounts.html" class="quick-card">
+                            <span class="quick-icon purple">♧</span>
+                            <div>
+                                <strong>Comptes administrateurs</strong>
+                                <small>Gérer les accès administratifs</small>
+                            </div>
+                            <span class="quick-arrow">→</span>
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="dashboard-footer">
+
+                    <p>
+                        © <span id="currentYear"></span>
+                        Dahira Mafatihoul Bichri - Touba ISEPAT de Diamniadio.
+                    </p>
+
+                    <span>La régularité construit les grandes choses.</span>
+
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="/js/admin-principal-dashboard.js"></script>
+
+</body>
+
+</html>

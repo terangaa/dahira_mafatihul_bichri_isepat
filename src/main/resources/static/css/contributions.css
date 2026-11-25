@@ -1,0 +1,2 @@
+/* Styles spécifiques à la page contributions. */
+#contributions-section .content-card, #contributions-section .table-card { min-width: 0; }

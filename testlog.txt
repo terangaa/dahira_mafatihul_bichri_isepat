@@ -1,0 +1,81 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+19:02:36.858 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest]: MemberControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:02:37.370 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplication for test class com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest
+19:02:37.775 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest]: MemberControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:02:37.779 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplication for test class com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.049 s <<< FAILURE! -- in com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest
+[ERROR] com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest.shouldCreateAndListMembers -- Time elapsed: 0.041 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import org.springframework.boot.test.autoconfigure.web cannot be resolved
+	AutoConfigureMockMvc cannot be resolved to a type
+
+	at com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.MemberControllerIntegrationTest.<init>(MemberControllerIntegrationTest.java:8)
+
+19:02:38.073 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplicationTests]: PlateformDahiraMafatihoulBichriIsepatApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:02:38.084 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplication for test class com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplicationTests
+19:02:38.087 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplicationTests]: PlateformDahiraMafatihoulBichriIsepatApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:02:38.091 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplication for test class com.dahiramafatihulbichriisepat.plateform_dahira_mafatihoul_bichri_isepat.PlateformDahiraMafatihoulBichriIsepatApplicationTests
+19:02:38.424 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-09-24T19:02:39.752Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] raMafatihoulBichriIsepatApplicationTests : Starting PlateformDahiraMafatihoulBichriIsepatApplicationTests using Java 24.0.2 with PID 6088 (started by hp in C:\Users\hp\Desktop\plateform_dahira_mafatihoul_bichri_isepat)
+2026-09-24T19:02:39.756Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] raMafatihoulBichriIsepatApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-09-24T19:02:43.904Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-24T19:02:44.090Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 1 JPA repository interface.
+2026-09-24T19:02:46.808Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-24T19:02:47.158Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-24T19:02:50.021Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-24T19:02:50.125Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-24T19:02:50.731Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:dahira user=SA
+2026-09-24T19:02:50.737Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-24T19:02:50.910Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:dahira]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DAHIRA/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-24T19:02:54.303Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-24T19:02:54.501Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-24T19:02:55.265Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-24T19:02:55.855Z  WARN 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-24T19:02:56.509Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-09-24T19:02:59.359Z  INFO 6088 --- [plateform_dahira_mafatihoul_bichri_isepat] [           main] raMafatihoulBichriIsepatApplicationTests : Started PlateformDahiraMafatihoulBichriIsepatApplicationTests in 21.009 seconds (process running for 26.834)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[ERROR] Errors: 
+[ERROR]   MemberControllerIntegrationTest.<init>:8  Unresolved compilation problems: 
+	The import org.springframework.boot.test.autoconfigure.web cannot be resolved
+	AutoConfigureMockMvc cannot be resolved to a type
+
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project plateform_dahira_mafatihoul_bichri_isepat: 
+[ERROR] 
+[ERROR] See C:\Users\hp\Desktop\plateform_dahira_mafatihoul_bichri_isepat\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

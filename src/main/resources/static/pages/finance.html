@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1261cf">
+    <title>Finances | Dahira Mafatihoul Bichri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/finance.css">
+</head>
+
+<body>
+    <main id="app-view" class="app-shell">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img alt="Logo Dahira Mafatihoul Bichri" class="sidebar-logo" decoding="async" src="/image.png" />
+                <div>
+                    <strong>Mafatihoul</strong>
+                    <span>Bichri · Diamniadio</span>
+                </div>
+            </div>
+            <nav aria-label="Navigation principale" class="main-nav">
+                <div class="nav-group-title">Principal</div>
+                <a class="nav-item" href="index.html"><span class="nav-icon">⌂</span><span>Vue d'ensemble</span></a>
+                <a class="nav-item admin-only" href="members.html"><span
+                        class="nav-icon">♙</span><span>Membres</span></a>
+                <a class="nav-item admin-only" href="commissions.html"><span
+                        class="nav-icon">◎</span><span>Commissions</span></a>
+                <a class="nav-item admin-only" href="projects.html"><span
+                        class="nav-icon">⌁</span><span>Projets</span></a>
+                <a class="nav-item" href="events.html"><span class="nav-icon">◷</span><span>Événements</span></a>
+                <a class="nav-item active" href="finance.html"><span class="nav-icon">◫</span><span>Finances</span></a>
+                <a class="nav-item admin-only" href="contributions.html"><span
+                        class="nav-icon">◇</span><span>Contributions</span></a>
+                <a class="nav-item" href="history.html"><span class="nav-icon">◷</span><span>Histoire</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="quote">« La régularité construit les grandes choses. »</div>
+                <button class="logout-button" id="logout-button" type="button">
+                    <span>Quitter la session</span><span>↗</span>
+                </button>
+            </div>
+        </aside>
+
+        <section class="content-area">
+            <header class="topbar">
+                <button aria-label="Ouvrir le menu" class="menu-button" id="menu-button" type="button">☰</button>
+                <div class="topbar-title">
+                    <p class="eyebrow">Dahira Mafatihoul Bichri</p>
+                    <h2 id="page-title">Vue d'ensemble</h2>
+                </div>
+                <div class="user-chip">
+                    <span class="avatar" id="user-avatar">MB</span>
+                    <span>
+                        <strong id="user-email">Membre</strong>
+                        <small id="user-role">Membre actif</small>
+                    </span>
+                </div>
+            </header>
+
+            <div class="app-message" id="app-message" role="status"></div>
+
+            <section class="page-section" id="finance-section">
+                <!-- EN-TÊTE -->
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow olive">Transparence</p>
+                        <h1>Mes finances.</h1>
+                        <p class="muted">Suivez les cotisations et les contributions du Dahira en toute transparence.
+                        </p>
+                    </div>
+                    <div class="section-actions">
+                        <button class="primary-button compact admin-only" id="generate-payments-button" type="button">
+                            Générer les cotisations <span>⚡</span>
+                        </button>
+                        <button class="secondary-button compact admin-only" id="new-payment" type="button">
+                            Ajouter une cotisation <span>+</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARTES DE RÉSUMÉ -->
+                <div class="finance-summary-grid">
+                    <!-- TOTAL COLLECTÉ -->
+                    <article class="finance-summary-card primary">
+                        <div class="summary-icon">₣</div>
+                        <span class="summary-label">Total collecté</span>
+                        <strong id="finance-total-collected">—</strong>
+                        <small>Cotisations + contributions</small>
+                    </article>
+
+                    <!-- COTISATIONS AVEC DÉTAIL PAR STATUT -->
+                    <article class="finance-summary-card">
+                        <div class="summary-icon">◫</div>
+                        <span class="summary-label">Cotisations</span>
+                        <strong id="finance-monthly-count">—</strong>
+                        <div class="status-breakdown">
+                            <span class="status-pill status-paid" title="Payées">
+                                <span class="pill-dot"></span>
+                                <span id="stat-paid">0</span> payée(s)
+                            </span>
+                            <span class="status-pill status-partial" title="Partielles">
+                                <span class="pill-dot"></span>
+                                <span id="stat-partial">0</span> partielle(s)
+                            </span>
+                            <span class="status-pill status-pending" title="En attente">
+                                <span class="pill-dot"></span>
+                                <span id="stat-pending">0</span> en attente
+                            </span>
+                            <span class="status-pill status-cancelled" title="Annulées">
+                                <span class="pill-dot"></span>
+                                <span id="stat-cancelled">0</span> annulée(s)
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- TOTAL VERSÉ -->
+                    <article class="finance-summary-card">
+                        <div class="summary-icon">✓</div>
+                        <span class="summary-label">Total versé</span>
+                        <strong id="finance-personal-total">—</strong>
+                        <small>Montant déjà payé</small>
+                    </article>
+
+                    <!-- À RÉGULARISER -->
+                    <article class="finance-summary-card">
+                        <div class="summary-icon">!</div>
+                        <span class="summary-label">À régulariser</span>
+                        <strong id="finance-personal-remaining">—</strong>
+                        <small>Cotisations restantes</small>
+                    </article>
+                </div>
+
+                <!-- TABLEAU DES COTISATIONS -->
+                <article class="content-card table-card admin-only">
+                    <div class="table-toolbar">
+                        <div>
+                            <span class="eyebrow olive">Suivi financier</span>
+                            <strong>Cotisations mensuelles</strong>
+                        </div>
+                        <span id="payment-total">— cotisations</span>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Membre</th>
+                                    <th>Période</th>
+                                    <th>Attendu</th>
+                                    <th>Payé</th>
+                                    <th>Reste</th>
+                                    <th>Date de paiement</th>
+                                    <th>Statut</th>
+                                    <th>Mode</th>
+                                    <th>Observation</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="payments-table">
+                                <tr>
+                                    <td class="empty-state" colspan="10">Chargement des cotisations...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <div class="finance-security-note">
+                    <span>Vos données financières sont protégées et accessibles uniquement selon votre rôle.</span>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- =====================================================
+         MODALE : AJOUTER / MODIFIER UNE COTISATION
+    ===================================================== -->
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="payment-form-title">Nouvelle cotisation</h3>
+                <button class="modal-close" data-close="payment-modal" type="button">×</button>
+            </div>
+            <form id="payment-form">
+                <div class="modal-body">
+                    <input id="payment-id" type="hidden" />
+                    <div class="form-grid">
+                        <div class="form-wide">
+                            <label for="payment-member-id">Membre</label>
+                            <select id="payment-member-id" required>
+                                <option value="">Sélectionner un membre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="payment-month">Mois</label>
+                            <select id="payment-month" required>
+                                <option value="">Sélectionner</option>
+                                <option value="1">Janvier</option>
+                                <option value="2">Février</option>
+                                <option value="3">Mars</option>
+                                <option value="4">Avril</option>
+                                <option value="5">Mai</option>
+                                <option value="6">Juin</option>
+                                <option value="7">Juillet</option>
+                                <option value="8">Août</option>
+                                <option value="9">Septembre</option>
+                                <option value="10">Octobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Décembre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="payment-year">Année</label>
+                            <input id="payment-year" max="2100" min="2020" required type="number" />
+                        </div>
+                        <div>
+                            <label for="payment-expected">Montant attendu</label>
+                            <input id="payment-expected" min="0" placeholder="500" required step="1" type="number" />
+                        </div>
+                        <div>
+                            <label for="payment-paid">Montant payé</label>
+                            <input id="payment-paid" min="0" step="1" type="number" value="0" />
+                        </div>
+                        <div>
+                            <label for="payment-date">Date de paiement</label>
+                            <input id="payment-date" type="date" />
+                        </div>
+                        <div>
+                            <label for="payment-status">Statut</label>
+                            <select id="payment-status">
+                                <option value="NON_PAYEE">Non payée</option>
+                                <option value="PARTIEL">Partiel</option>
+                                <option value="PAYE">Payé</option>
+                                <option value="EN_ATTENTE">En attente</option>
+                                <option value="ANNULEE">Annulée</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="payment-method">Mode de paiement</label>
+                            <select id="payment-method">
+                                <option value="">Sélectionner</option>
+                                <option value="WAVE">Wave</option>
+                                <option value="ORANGE_MONEY">Orange Money</option>
+                                <option value="MOBILE_MONEY">Mobile Money</option>
+                                <option value="ESPECES">Espèces</option>
+                                <option value="VIREMENT">Virement</option>
+                                <option value="AUTRE">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-wide">
+                            <label for="payment-observation">Observation</label>
+                            <textarea id="payment-observation" placeholder="Observation concernant le paiement..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="secondary-button" data-close="payment-modal" type="button">Annuler</button>
+                    <button class="primary-button compact" type="submit">Enregistrer <span>✓</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         MODALE : GÉNÉRATION AUTOMATIQUE
+    ===================================================== -->
+    <div id="generate-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Générer les cotisations</h3>
+                <button class="modal-close" data-close="generate-modal" type="button">×</button>
+            </div>
+            <form id="generate-payments-form">
+                <div class="modal-body">
+                    <div class="form-grid">
+                        <div>
+                            <label for="generation-month">Mois</label>
+                            <select id="generation-month" required>
+                                <option value="">Sélectionner le mois</option>
+                                <option value="1">Janvier</option>
+                                <option value="2">Février</option>
+                                <option value="3">Mars</option>
+                                <option value="4">Avril</option>
+                                <option value="5">Mai</option>
+                                <option value="6">Juin</option>
+                                <option value="7">Juillet</option>
+                                <option value="8">Août</option>
+                                <option value="9">Septembre</option>
+                                <option value="10">Octobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Décembre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="generation-year">Année</label>
+                            <input id="generation-year" max="2100" min="2020" required type="number" />
+                        </div>
+                        <div>
+                            <label for="generation-amount">Montant de la cotisation</label>
+                            <input id="generation-amount" min="1" required step="1" type="number" value="500" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="secondary-button" data-close="generate-modal" type="button">Annuler</button>
+                    <button class="primary-button" type="submit">Confirmer la génération <span>⚡</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/finance.js"></script>
+</body>
+
+</html>

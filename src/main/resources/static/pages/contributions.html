@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1261cf">
+    <title>Contributions | Dahira Mafatihoul Bichri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/contributions.css">
+</head>
+
+<body>
+    <main id="app-view" class="app-shell"><!-- Menu commun -->
+        <aside class="sidebar">
+            <!-- =================================================
+                 BRAND
+                 ================================================= -->
+            <div class="sidebar-brand">
+                <img alt="Logo Dahira Mafatihoul Bichri" class="sidebar-logo" decoding="async" src="/image.png" />
+                <div>
+                    <strong>
+                        Mafatihoul
+                    </strong>
+                    <span>
+                        Bichri · Diamniadio
+                    </span>
+                </div>
+            </div>
+            <!-- =================================================
+                 NAVIGATION
+                 ================================================= -->
+            <nav aria-label="Navigation principale" class="main-nav">
+                <!-- PRINCIPAL -->
+                <div class="nav-group-title">
+                    Principal
+                </div>
+                <!-- VUE D'ENSEMBLE -->
+                <a class="nav-item" href="index.html">
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+                    <span>
+                        Vue d'ensemble
+                    </span>
+                </a>
+                <!-- MEMBRES -->
+                <a class="nav-item admin-only" href="members.html">
+                    <span class="nav-icon">
+                        ♙
+                    </span>
+                    <span>
+                        Membres
+                    </span>
+                </a>
+                <!-- COMMISSIONS -->
+                <a class="nav-item admin-only" href="commissions.html">
+                    <span class="nav-icon">
+                        ◎
+                    </span>
+                    <span>
+                        Commissions
+                    </span>
+                </a>
+                <!-- PROJETS -->
+                <a class="nav-item admin-only" href="projects.html">
+                    <span class="nav-icon">
+                        ⌁
+                    </span>
+                    <span>
+                        Projets
+                    </span>
+                </a>
+                <!-- EVENEMENTS -->
+                <a class="nav-item" href="events.html">
+                    <span class="nav-icon">
+                        ◷
+                    </span>
+                    <span>
+                        Événements
+                    </span>
+                </a>
+                <!-- FINANCES -->
+                <a class="nav-item" href="finance.html">
+                    <span class="nav-icon">
+                        ◫
+                    </span>
+                    <span>
+                        Finances
+                    </span>
+                </a>
+                <!-- CONTRIBUTIONS -->
+                <a class="nav-item admin-only active" href="contributions.html">
+                    <span class="nav-icon">
+                        ◇
+                    </span>
+                    <span>
+                        Contributions
+                    </span>
+                </a>
+                <!-- HISTOIRE -->
+                <a class="nav-item" href="history.html">
+                    <span class="nav-icon">
+                        ◷
+                    </span>
+                    <span>
+                        Histoire
+                    </span>
+                </a>
+            </nav>
+            <!-- =================================================
+                 BAS SIDEBAR
+                 ================================================= -->
+            <div class="sidebar-bottom">
+                <div class="quote">
+
+                    « La régularité construit les grandes choses. »
+
+                </div>
+                <button class="logout-button" id="logout-button" type="button">
+                    <span>
+                        Quitter la session
+                    </span>
+                    <span>
+                        ↗
+                    </span>
+                </button>
+            </div>
+        </aside>
+        <section class="content-area">
+            <header class="topbar">
+                <button aria-label="Ouvrir le menu" class="menu-button" id="menu-button" type="button">
+
+                    ☰
+
+                </button>
+                <div class="topbar-title">
+                    <p class="eyebrow">
+                        Dahira Mafatihoul Bichri
+                    </p>
+                    <h2 id="page-title">
+                        Vue d'ensemble
+                    </h2>
+                </div>
+                <!-- UTILISATEUR -->
+                <div class="user-chip">
+                    <span class="avatar" id="user-avatar">
+
+                        MB
+
+                    </span>
+                    <span>
+                        <strong id="user-email">
+                            Membre
+                        </strong>
+                        <small id="user-role">
+                            Membre actif
+                        </small>
+                    </span>
+                </div>
+            </header>
+            <div class="app-message" id="app-message" role="status">
+            </div>
+            <section class="page-section" id="contributions-section">
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow olive">
+                            Soutien
+                        </p>
+                        <h1>
+                            Les contributions.
+                        </h1>
+                        <p class="muted">
+                            Suivez les contributions financières du Dahira.
+                        </p>
+                    </div>
+                    <div class="section-actions">
+                        <button class="primary-button compact admin-only" id="new-contribution" type="button">
+
+                            Ajouter une contribution
+
+                            <span>
+                                +
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div id="contributions-list">
+                    <div class="empty-state">
+                        Chargement...
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../js/contributions.js"></script>
+</body>
+
+</html>

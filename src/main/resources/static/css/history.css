@@ -1,0 +1,2 @@
+/* Styles spécifiques à la page history. */
+#history-section .content-card, #history-section .table-card { min-width: 0; }

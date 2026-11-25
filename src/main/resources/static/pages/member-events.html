@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1556a8">
+    <meta name="description"
+        content="Consultez les événements du Dahira Mafatihoul Bichri - Touba ISEPAT de Diamniadio.">
+
+    <title>Mes événements | Dahira Mafatihoul Bichri</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-950: #102f59;
+            --blue-900: #154477;
+            --blue-800: #1556a8;
+            --blue-700: #2472c8;
+            --blue-100: #eaf3ff;
+
+            --gold: #c8a24b;
+            --gold-light: #f8f1df;
+
+            --ink: #1d2b3a;
+            --muted: #718096;
+            --line: #e5ebf2;
+
+            --bg: #f4f7fb;
+            --white: #ffffff;
+
+            --green: #16865b;
+            --green-light: #e8f7ef;
+
+            --red: #c03939;
+            --red-light: #fff0f0;
+
+            --orange: #b7791f;
+            --orange-light: #fff7e6;
+
+            --shadow: 0 12px 32px rgba(25, 61, 105, .08);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        .shell {
+            width: min(1180px, calc(100% - 36px));
+            margin: auto;
+            padding: 28px 0 45px;
+        }
+
+        /* EN-TÊTE */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .mark {
+            width: 49px;
+            height: 49px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(145deg, var(--blue-700), var(--blue-950));
+            font: 700 19px 'Playfair Display';
+            box-shadow: 0 7px 18px #15447730;
+        }
+
+        .brand h2 {
+            font-size: 15px;
+            margin: 0;
+            color: var(--blue-950);
+        }
+
+        .brand p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 4px 0 0;
+        }
+
+        .tag {
+            padding: 9px 14px;
+            border-radius: 30px;
+            background: var(--blue-100);
+            border: 1px solid #d8e7fa;
+            color: var(--blue-800);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* BANNIÈRE */
+
+        .hero {
+            padding: 32px;
+            border-radius: 24px;
+            color: white;
+            background: linear-gradient(115deg, #102f59f5, #2472c8ed);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -65px;
+            top: -115px;
+            border: 1px solid #ffffff35;
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 28px #ffffff09,
+                0 0 0 58px #ffffff08;
+        }
+
+        .kicker {
+            margin: 0 0 9px;
+            color: #f0d99e;
+            text-transform: uppercase;
+            letter-spacing: .13em;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font: 700 clamp(27px, 4vw, 38px) 'Playfair Display';
+        }
+
+        .hero p:last-child {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            color: #ffffffd9;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 12px 0 0;
+        }
+
+        /* MESSAGES */
+
+        .notice {
+            display: none;
+            margin: 18px 0;
+            padding: 14px 17px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .notice.show {
+            display: block;
+        }
+
+        .notice.error {
+            background: var(--red-light);
+            color: #a52b2b;
+            border: 1px solid #f4cccc;
+        }
+
+        .notice.info {
+            background: var(--blue-100);
+            color: #245b96;
+            border: 1px solid #d5e6fa;
+        }
+
+        /* TITRES */
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 15px;
+            margin: 29px 0 15px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            color: var(--blue-950);
+            font: 700 22px 'Playfair Display';
+        }
+
+        .section-title p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .refresh {
+            border: 0;
+            border-radius: 10px;
+            background: var(--blue-800);
+            color: white;
+            padding: 11px 17px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .refresh:hover {
+            background: var(--blue-950);
+            transform: translateY(-1px);
+        }
+
+        .refresh:disabled {
+            opacity: .6;
+            cursor: wait;
+            transform: none;
+        }
+
+        /* STATISTIQUES */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: 0 5px 18px #193d6908;
+            position: relative;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--blue-700);
+        }
+
+        .stat-card:nth-child(2)::before {
+            background: var(--green);
+        }
+
+        .stat-card:nth-child(3)::before {
+            background: var(--gold);
+        }
+
+        .stat-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--blue-100);
+            font-size: 18px;
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: var(--green-light);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: var(--gold-light);
+        }
+
+        .stat-value {
+            display: block;
+            margin-top: 15px;
+            font-size: 29px;
+            color: var(--blue-950);
+            font-weight: 800;
+        }
+
+        .stat-card:nth-child(2) .stat-value {
+            color: var(--green);
+        }
+
+        .stat-card:nth-child(3) .stat-value {
+            color: var(--orange);
+        }
+
+        .stat-hint {
+            display: block;
+            margin-top: 7px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* FILTRES */
+
+        .filters {
+            margin-top: 24px;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 5px 18px #193d6908;
+        }
+
+        .filters-header {
+            margin-bottom: 14px;
+        }
+
+        .filters-header h3 {
+            margin: 0;
+            color: var(--blue-950);
+            font: 700 18px 'Playfair Display';
+        }
+
+        .filters-header p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .filter-controls {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 12px;
+        }
+
+        .search-box,
+        .filter-select {
+            width: 100%;
+            min-height: 45px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 11px 13px;
+            color: var(--ink);
+            background: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .search-box:focus,
+        .filter-select:focus {
+            border-color: var(--blue-700);
+            box-shadow: 0 0 0 3px #2472c815;
+        }
+
+        /* LISTE DES ÉVÉNEMENTS */
+
+        .events-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 28px 0 15px;
+        }
+
+        .events-heading h2 {
+            margin: 0;
+            color: var(--blue-950);
+            font: 700 22px 'Playfair Display';
+        }
+
+        .events-count {
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: var(--gold-light);
+            color: #987324;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .event-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: 0 5px 18px #193d6908;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .event-card-top {
+            padding: 19px 21px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(110deg, #f8fbff, #ffffff);
+        }
+
+        .event-date {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .date-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--blue-100);
+            color: var(--blue-800);
+            font-size: 20px;
+        }
+
+        .date-text strong {
+            display: block;
+            color: var(--blue-950);
+            font-size: 13px;
+        }
+
+        .date-text span {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .event-body {
+            padding: 20px 21px;
+        }
+
+        .event-body h3 {
+            margin: 0;
+            color: var(--blue-950);
+            font-size: 17px;
+            line-height: 1.4;
+            font-weight: 800;
+        }
+
+        .event-description {
+            margin: 11px 0 0;
+            color: #64748b;
+            font-size: 12px;
+            line-height: 1.8;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
+        .event-location {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #edf1f6;
+            color: #52647a;
+            font-size: 12px;
+        }
+
+        .event-location span:first-child {
+            font-size: 16px;
+        }
+
+        .event-footer {
+            padding: 0 21px 19px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event-period {
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        /* BADGES */
+
+        .badge {
+            display: inline-block;
+            border-radius: 30px;
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .badge-active {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .badge-pending {
+            background: var(--orange-light);
+            color: var(--orange);
+        }
+
+        .badge-cancelled {
+            background: var(--red-light);
+            color: var(--red);
+        }
+
+        .badge-default {
+            background: var(--blue-100);
+            color: var(--blue-800);
+        }
+
+        /* ÉTAT VIDE */
+
+        .empty-state {
+            grid-column: 1 / -1;
+            background: white;
+            border: 1px dashed #cbd5e1;
+            border-radius: var(--radius);
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 20px;
+            background: var(--blue-100);
+            font-size: 28px;
+        }
+
+        .empty-state h3 {
+            margin: 0;
+            color: var(--blue-950);
+            font: 700 20px 'Playfair Display';
+        }
+
+        .empty-state p {
+            max-width: 420px;
+            margin: 9px auto 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* PIED DE PAGE */
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .footer strong {
+            color: var(--blue-800);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 760px) {
+
+            .shell {
+                width: calc(100% - 24px);
+                padding-top: 18px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hero {
+                padding: 25px 22px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                grid-template-columns: 1fr;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .refresh {
+                width: 100%;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width: 420px) {
+
+            .event-card-top {
+                flex-direction: column;
+            }
+
+            .event-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .events-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="shell">
+
+        <!-- EN-TÊTE -->
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="mark">MB</div>
+
+                <div>
+                    <h2>Dahira Mafatihoul Bichri</h2>
+                    <p>Touba ISEPAT de Diamniadio</p>
+                </div>
+
+            </div>
+
+            <div class="tag">
+                Espace membre · Événements
+            </div>
+
+        </header>
+
+
+        <!-- BANNIÈRE -->
+        <section class="hero">
+
+            <p class="kicker">
+                Vie associative et activités
+            </p>
+
+            <h1>Nos événements</h1>
+
+            <p>
+                Retrouvez les activités, rencontres et événements organisés
+                par le Dahira Mafatihoul Bichri. Consultez les dates,
+                les lieux et les informations importantes.
+            </p>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <div id="app-message" class="notice" role="status" aria-live="polite"></div>
+
+
+        <!-- STATISTIQUES -->
+        <div class="section-title">
+
+            <div>
+                <h2>Vue d'ensemble</h2>
+                <p>Les événements enregistrés dans la plateforme.</p>
+            </div>
+
+            <button class="refresh" id="refresh-events" type="button">
+                ↻ Actualiser
+            </button>
+
+        </div>
+
+
+        <section class="stats">
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">Tous les événements</span>
+                    <span class="stat-icon">📅</span>
+                </div>
+
+                <strong class="stat-value" id="total-events">—</strong>
+
+                <span class="stat-hint">
+                    Nombre total d'événements
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">À venir</span>
+                    <span class="stat-icon">🗓️</span>
+                </div>
+
+                <strong class="stat-value" id="upcoming-events">—</strong>
+
+                <span class="stat-hint">
+                    Événements programmés
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">Terminés</span>
+                    <span class="stat-icon">✓</span>
+                </div>
+
+                <strong class="stat-value" id="past-events">—</strong>
+
+                <span class="stat-hint">
+                    Événements déjà passés
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- RECHERCHE ET FILTRES -->
+        <section class="filters">
+
+            <div class="filters-header">
+
+                <h3>Rechercher un événement</h3>
+
+                <p>
+                    Retrouvez rapidement une activité dans la liste.
+                </p>
+
+            </div>
+
+            <div class="filter-controls">
+
+                <input type="search" id="event-search" class="search-box"
+                    placeholder="Rechercher par nom, description ou lieu..." aria-label="Rechercher un événement">
+
+                <select id="event-filter" class="filter-select" aria-label="Filtrer les événements">
+
+                    <option value="all">Tous les événements</option>
+                    <option value="upcoming">Événements à venir</option>
+                    <option value="past">Événements terminés</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- LISTE -->
+        <div class="events-heading">
+
+            <h2>Liste des événements</h2>
+
+            <span class="events-count" id="visible-count">
+                0 événement
+            </span>
+
+        </div>
+
+
+        <section class="events-grid" id="events-list">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">📅</div>
+
+                <h3>Chargement des événements</h3>
+
+                <p>
+                    Veuillez patienter pendant la récupération
+                    des informations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PIED DE PAGE -->
+        <footer class="footer">
+
+            <span>
+                Les informations affichées proviennent de la plateforme
+                officielle du Dahira.
+            </span>
+
+            <strong>
+                Mafatihoul Bichri ·
+                <span id="current-year"></span>
+            </strong>
+
+        </footer>
+
+    </main>
+
+
+    <script>
+        (() => {
+
+            'use strict';
+
+
+            /* =========================================
+               1. INITIALISATION
+            ========================================= */
+
+            const $ = id => document.getElementById(id);
+
+            $('current-year').textContent = new Date().getFullYear();
+
+            let allEvents = [];
+
+
+            /* =========================================
+               2. TOKEN DE CONNEXION
+            ========================================= */
+
+            function getToken() {
+
+                return localStorage.getItem('dahira_token')
+                    || sessionStorage.getItem('dahira_token')
+                    || localStorage.getItem('accessToken')
+                    || localStorage.getItem('access_token')
+                    || localStorage.getItem('token')
+                    || sessionStorage.getItem('token');
+
+            }
+
+
+            /* =========================================
+               3. MESSAGES
+            ========================================= */
+
+            function showMessage(text, type = 'info') {
+
+                const element = $('app-message');
+
+                element.textContent = text;
+
+                element.className = 'notice show ' + type;
+
+            }
+
+
+            function hideMessage() {
+
+                const element = $('app-message');
+
+                element.textContent = '';
+
+                element.className = 'notice';
+
+            }
+
+
+            /* =========================================
+               4. APPEL API
+            ========================================= */
+
+            async function getEventsFromApi(jwt) {
+
+                const response = await fetch('/api/events', {
+
+                    method: 'GET',
+
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + jwt
+                    },
+
+                    credentials: 'same-origin'
+
+                });
+
+
+                if (!response.ok) {
+
+                    const error = new Error(
+                        'Erreur HTTP ' + response.status
+                    );
+
+                    error.status = response.status;
+
+                    throw error;
+
+                }
+
+
+                if (response.status === 204) {
+                    return [];
+                }
+
+
+                return response.json();
+
+            }
+
+
+            /* =========================================
+               5. RÉCUPÉRATION DES ÉVÉNEMENTS
+            ========================================= */
+
+            function extractEvents(data) {
+
+                if (Array.isArray(data)) {
+                    return data;
+                }
+
+                if (data && Array.isArray(data.content)) {
+                    return data.content;
+                }
+
+                if (data && Array.isArray(data.data)) {
+                    return data.data;
+                }
+
+                if (data && Array.isArray(data.events)) {
+                    return data.events;
+                }
+
+                return [];
+
+            }
+
+
+            /* =========================================
+               6. GESTION DES DATES
+            ========================================= */
+
+            function getEventDate(event) {
+
+                if (!event.eventDate) {
+                    return null;
+                }
+
+                const date = new Date(event.eventDate);
+
+                if (Number.isNaN(date.getTime())) {
+                    return null;
+                }
+
+                return date;
+
+            }
+
+
+            function formatDate(event) {
+
+                const date = getEventDate(event);
+
+                if (!date) {
+                    return 'Date non renseignée';
+                }
+
+                return new Intl.DateTimeFormat('fr-FR', {
+
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+
+                }).format(date);
+
+            }
+
+
+            function formatTime(event) {
+
+                const date = getEventDate(event);
+
+                if (!date) {
+                    return '';
+                }
+
+                // N'affiche l'heure que si elle est présente dans eventDate.
+                const hasTime = typeof event.eventDate === 'string'
+                    && /T\d{2}:\d{2}/.test(event.eventDate);
+
+                if (!hasTime) {
+                    return '';
+                }
+
+                return new Intl.DateTimeFormat('fr-FR', {
+
+                    hour: '2-digit',
+                    minute: '2-digit'
+
+                }).format(date);
+
+            }
+
+
+            function isUpcoming(event) {
+
+                const date = getEventDate(event);
+
+                if (!date) {
+                    return false;
+                }
+
+                return date.getTime() >= Date.now();
+
+            }
+
+
+            /* =========================================
+               7. STATUT
+            ========================================= */
+
+            function getStatusInfo(status) {
+
+                const value = String(status || '').toUpperCase();
+
+                const cancelled = [
+                    'ANNULE',
+                    'ANNULEE',
+                    'CANCELLED',
+                    'CANCELED'
+                ];
+
+                const pending = [
+                    'EN_ATTENTE',
+                    'PENDING',
+                    'EN_PREPARATION'
+                ];
+
+                const active = [
+                    'ACTIF',
+                    'ACTIVE',
+                    'CONFIRME',
+                    'CONFIRMEE',
+                    'PLANIFIE',
+                    'PLANIFIEE',
+                    'EN_COURS',
+                    'TERMINE',
+                    'TERMINEE'
+                ];
+
+                if (cancelled.includes(value)) {
+
+                    return {
+                        label: 'Annulé',
+                        className: 'badge-cancelled'
+                    };
+
+                }
+
+                if (pending.includes(value)) {
+
+                    return {
+                        label: 'En attente',
+                        className: 'badge-pending'
+                    };
+
+                }
+
+                if (active.includes(value)) {
+
+                    return {
+                        label: value.replaceAll('_', ' '),
+                        className: 'badge-active'
+                    };
+
+                }
+
+                return {
+                    label: status || 'Information disponible',
+                    className: 'badge-default'
+                };
+
+            }
+
+
+            /* =========================================
+               8. MISE À JOUR DES STATISTIQUES
+            ========================================= */
+
+            function updateStatistics(events) {
+
+                const total = events.length;
+
+                const upcoming = events.filter(event => {
+
+                    return isUpcoming(event);
+
+                }).length;
+
+                const past = events.filter(event => {
+
+                    const date = getEventDate(event);
+
+                    return date && date.getTime() < Date.now();
+
+                }).length;
+
+
+                $('total-events').textContent = total;
+
+                $('upcoming-events').textContent = upcoming;
+
+                $('past-events').textContent = past;
+
+            }
+
+
+            /* =========================================
+               9. CRÉATION CARTE ÉVÉNEMENT
+            ========================================= */
+
+            function createEventCard(event) {
+
+                const card = document.createElement('article');
+
+                card.className = 'event-card';
+
+
+                // En-tête
+                const top = document.createElement('div');
+
+                top.className = 'event-card-top';
+
+
+                const dateContainer = document.createElement('div');
+
+                dateContainer.className = 'event-date';
+
+
+                const dateIcon = document.createElement('div');
+
+                dateIcon.className = 'date-icon';
+
+                dateIcon.textContent = '📅';
+
+
+                const dateText = document.createElement('div');
+
+                dateText.className = 'date-text';
+
+
+                const dateStrong = document.createElement('strong');
+
+                dateStrong.textContent = formatDate(event);
+
+
+                const dateSpan = document.createElement('span');
+
+                dateSpan.textContent = formatTime(event);
+
+
+                dateText.appendChild(dateStrong);
+
+                dateText.appendChild(dateSpan);
+
+
+                dateContainer.appendChild(dateIcon);
+
+                dateContainer.appendChild(dateText);
+
+
+                const statusInfo = getStatusInfo(event.status);
+
+                const badge = document.createElement('span');
+
+                badge.className = 'badge ' + statusInfo.className;
+
+                badge.textContent = statusInfo.label;
+
+
+                top.appendChild(dateContainer);
+
+                top.appendChild(badge);
+
+
+                // Corps
+                const body = document.createElement('div');
+
+                body.className = 'event-body';
+
+
+                const title = document.createElement('h3');
+
+                title.textContent = event.name || 'Événement sans titre';
+
+
+                const description = document.createElement('p');
+
+                description.className = 'event-description';
+
+                description.textContent =
+                    event.description || 'Aucune description disponible.';
+
+
+                const location = document.createElement('div');
+
+                location.className = 'event-location';
+
+
+                const locationIcon = document.createElement('span');
+
+                locationIcon.textContent = '📍';
+
+
+                const locationText = document.createElement('span');
+
+                locationText.textContent =
+                    event.location || 'Lieu non renseigné';
+
+
+                location.appendChild(locationIcon);
+
+                location.appendChild(locationText);
+
+
+                body.appendChild(title);
+
+                body.appendChild(description);
+
+                body.appendChild(location);
+
+
+                // Pied de carte
+                const footer = document.createElement('div');
+
+                footer.className = 'event-footer';
+
+
+                const period = document.createElement('span');
+
+                period.className = 'event-period';
+
+                period.textContent = isUpcoming(event)
+                    ? 'Événement à venir'
+                    : 'Événement passé';
+
+
+                footer.appendChild(period);
+
+
+                card.appendChild(top);
+
+                card.appendChild(body);
+
+                card.appendChild(footer);
+
+
+                return card;
+
+            }
+
+
+            /* =========================================
+               10. ÉTAT VIDE
+            ========================================= */
+
+            function showEmptyState(title, description) {
+
+                const container = $('events-list');
+
+                container.replaceChildren();
+
+
+                const empty = document.createElement('div');
+
+                empty.className = 'empty-state';
+
+
+                const icon = document.createElement('div');
+
+                icon.className = 'empty-icon';
+
+                icon.textContent = '📅';
+
+
+                const heading = document.createElement('h3');
+
+                heading.textContent = title;
+
+
+                const paragraph = document.createElement('p');
+
+                paragraph.textContent = description;
+
+
+                empty.appendChild(icon);
+
+                empty.appendChild(heading);
+
+                empty.appendChild(paragraph);
+
+
+                container.appendChild(empty);
+
+                $('visible-count').textContent = '0 événement';
+
+            }
+
+
+            /* =========================================
+               11. RECHERCHE ET FILTRES
+            ========================================= */
+
+            function applyFilters() {
+
+                const search = $('event-search').value
+                    .trim()
+                    .toLowerCase();
+
+                const filter = $('event-filter').value;
+
+
+                let filtered = allEvents.filter(event => {
+
+                    const searchableText = [
+
+                        event.name,
+                        event.description,
+                        event.location,
+                        event.status
+
+                    ].join(' ').toLowerCase();
+
+
+                    return searchableText.includes(search);
+
+                });
+
+
+                if (filter === 'upcoming') {
+
+                    filtered = filtered.filter(event => {
+
+                        return isUpcoming(event);
+
+                    });
+
+                }
+
+
+                if (filter === 'past') {
+
+                    filtered = filtered.filter(event => {
+
+                        const date = getEventDate(event);
+
+                        return date && date.getTime() < Date.now();
+
+                    });
+
+                }
+
+
+                // Événements les plus proches en premier.
+                filtered.sort((a, b) => {
+
+                    const dateA = getEventDate(a);
+
+                    const dateB = getEventDate(b);
+
+                    if (!dateA) return 1;
+
+                    if (!dateB) return -1;
+
+                    return dateA - dateB;
+
+                });
+
+
+                renderEvents(filtered);
+
+            }
+
+
+            /* =========================================
+               12. AFFICHAGE DES ÉVÉNEMENTS
+            ========================================= */
+
+            function renderEvents(events) {
+
+                const container = $('events-list');
+
+                container.replaceChildren();
+
+
+                if (!events.length) {
+
+                    showEmptyState(
+                        'Aucun événement trouvé',
+                        'Aucun événement ne correspond à votre recherche ou à ce filtre.'
+                    );
+
+                    return;
+
+                }
+
+
+                events.forEach(event => {
+
+                    container.appendChild(
+                        createEventCard(event)
+                    );
+
+                });
+
+
+                $('visible-count').textContent =
+                    events.length + (
+                        events.length > 1
+                            ? ' événements'
+                            : ' événement'
+                    );
+
+            }
+
+
+            /* =========================================
+               13. CHARGEMENT PRINCIPAL
+            ========================================= */
+
+            async function loadEvents() {
+
+                const button = $('refresh-events');
+
+                button.disabled = true;
+
+                button.textContent = 'Chargement…';
+
+                hideMessage();
+
+
+                const jwt = getToken();
+
+
+                if (!jwt) {
+
+                    showMessage(
+                        'Votre session semble expirée. Veuillez vous reconnecter pour consulter les événements.',
+                        'error'
+                    );
+
+                    showEmptyState(
+                        'Connexion nécessaire',
+                        'Veuillez vous connecter à votre espace membre pour consulter les événements.'
+                    );
+
+                    button.disabled = false;
+
+                    button.textContent = '↻ Actualiser';
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const data = await getEventsFromApi(jwt);
+
+
+                    allEvents = extractEvents(data);
+
+
+                    updateStatistics(allEvents);
+
+
+                    applyFilters();
+
+
+                    console.log(
+                        '===== ÉVÉNEMENTS DU DAHIRA ====='
+                    );
+
+                    console.log(
+                        'Nombre total :',
+                        allEvents.length
+                    );
+
+                    console.log(
+                        'Événements reçus :',
+                        allEvents
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        'Erreur chargement événements :',
+                        error
+                    );
+
+
+                    if (
+                        error.status === 401 ||
+                        error.status === 403
+                    ) {
+
+                        showMessage(
+                            'Accès refusé ou session expirée. Vérifiez votre connexion et vos autorisations MEMBER.',
+                            'error'
+                        );
+
+                    } else {
+
+                        showMessage(
+                            'Impossible de charger les événements. Vérifiez la route GET /api/events dans votre backend.',
+                            'error'
+                        );
+
+                    }
+
+
+                    allEvents = [];
+
+                    updateStatistics([]);
+
+                    showEmptyState(
+                        'Événements indisponibles',
+                        'Une erreur est survenue pendant le chargement. Veuillez réessayer.'
+                    );
+
+
+                } finally {
+
+                    button.disabled = false;
+
+                    button.textContent = '↻ Actualiser';
+
+                }
+
+            }
+
+
+            /* =========================================
+               14. ÉVÉNEMENTS UTILISATEUR
+            ========================================= */
+
+            $('refresh-events').addEventListener(
+                'click',
+                loadEvents
+            );
+
+
+            $('event-search').addEventListener(
+                'input',
+                applyFilters
+            );
+
+
+            $('event-filter').addEventListener(
+                'change',
+                applyFilters
+            );
+
+
+            /* =========================================
+               15. CHARGEMENT AUTOMATIQUE
+            ========================================= */
+
+            loadEvents();
+
+
+        })();
+    </script>
+
+</body>
+
+</html>

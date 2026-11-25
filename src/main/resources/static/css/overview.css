@@ -1,0 +1,1091 @@
+/* =========================================================
+   DAHIRA MAFAT IHOUL BICHRI
+   Vue d'ensemble : design moderne et responsive
+   ========================================================= */
+
+:root {
+    --overview-blue: #0754c9;
+    --overview-blue-dark: #063b91;
+    --overview-green: #087f5b;
+    --overview-gold: #d6ad55;
+    --overview-ink: #17243a;
+    --overview-muted: #718096;
+    --overview-surface: #ffffff;
+    --overview-border: rgba(221, 230, 241, 0.9);
+    --overview-shadow: 0 14px 38px rgba(21, 45, 79, 0.08);
+}
+
+/* Arrière-plan général */
+.content-area {
+    min-width: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 90% 0%,
+            rgba(22, 128, 255, 0.10),
+            transparent 32%),
+        radial-gradient(ellipse at 5% 60%,
+            rgba(8, 127, 91, 0.055),
+            transparent 35%),
+        #f4f7fc;
+}
+
+/* Barre supérieure */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(221, 230, 241, 0.8);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.topbar-title {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar-title .eyebrow {
+    margin: 0 0 5px;
+    color: var(--overview-blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.topbar-title h2 {
+    margin: 0;
+    color: var(--overview-ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 14px 8px 8px;
+    border: 1px solid var(--overview-border);
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 4px 14px rgba(20, 45, 80, 0.04);
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    color: white;
+    background: linear-gradient(135deg,
+            var(--overview-blue),
+            var(--overview-green));
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.user-chip strong,
+.user-chip small {
+    display: block;
+    max-width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-chip strong {
+    color: var(--overview-ink);
+    font-size: 12px;
+}
+
+.user-chip small {
+    margin-top: 4px;
+    color: var(--overview-muted);
+    font-size: 11px;
+}
+
+/* Contenu principal */
+.page-section {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* En-tête de page */
+.section-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 27px;
+}
+
+.section-intro h1 {
+    max-width: 850px;
+    margin: 8px 0 0;
+    color: var(--overview-ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(25px, 3vw, 37px);
+    line-height: 1.3;
+}
+
+.eyebrow.olive {
+    margin: 0;
+    color: var(--overview-green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 10px 14px;
+    border: 1px solid #c9eddb;
+    border-radius: 999px;
+    color: #087443;
+    background: #ecfbf3;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-pill i {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #16a36a;
+    box-shadow: 0 0 0 4px rgba(22, 163, 106, 0.12);
+}
+
+/* =========================================================
+   BANNIÈRE DE BIENVENUE
+   ========================================================= */
+
+.member-dashboard-only {
+    margin-top: 25px;
+}
+
+.member-welcome {
+    position: relative;
+    min-height: 290px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(26px, 5vw, 55px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 26px;
+    color: white;
+    background:
+        radial-gradient(circle at 85% 15%,
+            rgba(214, 173, 85, 0.24),
+            transparent 25%),
+        radial-gradient(circle at 90% 100%,
+            rgba(34, 197, 94, 0.20),
+            transparent 34%),
+        linear-gradient(120deg,
+            #052b66 0%,
+            #0754a4 50%,
+            #087f5b 100%);
+    box-shadow: 0 22px 50px rgba(5, 43, 102, 0.20);
+    isolation: isolate;
+}
+
+.member-welcome::before {
+    position: absolute;
+    z-index: -1;
+    top: -110px;
+    right: -55px;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+    content: "";
+    box-shadow:
+        0 0 0 30px rgba(255, 255, 255, 0.025),
+        0 0 0 65px rgba(255, 255, 255, 0.025),
+        0 0 0 100px rgba(255, 255, 255, 0.02);
+}
+
+.member-welcome::after {
+    position: absolute;
+    z-index: -1;
+    right: 9%;
+    bottom: -100px;
+    width: 240px;
+    height: 240px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+    content: "";
+}
+
+/* Motif géométrique discret */
+.welcome-pattern {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.12;
+    background-image:
+        linear-gradient(45deg, transparent 46%, white 47%, white 48%, transparent 49%),
+        linear-gradient(-45deg, transparent 46%, white 47%, white 48%, transparent 49%);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(90deg, transparent 30%, black 100%);
+    pointer-events: none;
+}
+
+.member-welcome-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+}
+
+.welcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 22px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    color: #fff4d5;
+    background: rgba(255, 255, 255, 0.09);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    backdrop-filter: blur(8px);
+}
+
+.welcome-badge span {
+    color: var(--overview-gold);
+    font-size: 15px;
+}
+
+.member-welcome h1 {
+    margin: 0 0 15px;
+    color: #fff;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.2;
+}
+
+.member-welcome h1 span {
+    color: #f4d58b;
+}
+
+.member-welcome p {
+    max-width: 620px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.welcome-quote {
+    margin-top: 23px;
+    padding-left: 14px;
+    border-left: 3px solid #e5c477;
+    color: #ffedc0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* Cartes de l'espace membre */
+.member-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.member-shortcut {
+    position: relative;
+    min-width: 0;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid var(--overview-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--overview-shadow);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.member-shortcut:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(21, 45, 79, 0.12);
+}
+
+.member-shortcut-icon {
+    width: 49px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    color: var(--overview-blue);
+    background: #eaf2ff;
+    font-size: 23px;
+}
+
+.member-shortcut:nth-child(2) .member-shortcut-icon {
+    color: var(--overview-green);
+    background: #e8f8ef;
+}
+
+.member-shortcut:nth-child(3) .member-shortcut-icon {
+    color: #a06a0b;
+    background: #fff5dd;
+}
+
+.member-shortcut h3 {
+    margin: 0 0 9px;
+    color: var(--overview-ink);
+    font-size: 17px;
+}
+
+.member-shortcut p {
+    min-height: 46px;
+    margin: 0 0 20px;
+    color: var(--overview-muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.member-shortcut a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--overview-blue);
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.member-shortcut a:hover {
+    text-decoration: underline;
+}
+
+/* Statistiques administrateur */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    position: relative;
+    min-width: 0;
+    padding: 24px;
+    overflow: hidden;
+    border: 1px solid var(--overview-border);
+    border-radius: 19px;
+    background: white;
+    box-shadow: var(--overview-shadow);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card>span {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--overview-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-card>strong {
+    display: block;
+    color: var(--overview-ink);
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.stat-card>small {
+    display: block;
+    margin-top: 9px;
+    color: #8795a8;
+    font-size: 11px;
+}
+
+.stat-card>b {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #b6c9e8;
+    font-size: 24px;
+}
+
+.stat-card.dark {
+    border: none;
+    background: linear-gradient(135deg, #063b91, #1261cf);
+}
+
+.stat-card.dark>span,
+.stat-card.dark>small,
+.stat-card.dark>b {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.stat-card.dark>strong {
+    color: white;
+}
+
+/* Cartes financières et historique */
+.lower-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+}
+
+.content-card {
+    min-width: 0;
+    padding: 25px;
+    border: 1px solid var(--overview-border);
+    border-radius: 20px;
+    background: white;
+    box-shadow: var(--overview-shadow);
+}
+
+.card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-heading h3 {
+    margin: 8px 0 0;
+    color: var(--overview-ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 21px;
+}
+
+.card-arrow {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    color: var(--overview-blue);
+    background: #eaf2ff;
+}
+
+.finance-total {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+.finance-total>span {
+    color: var(--overview-muted);
+    font-size: 12px;
+}
+
+.finance-total>strong {
+    color: var(--overview-ink);
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+}
+
+.progress-track {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #eaf0f7;
+}
+
+.progress-track>span {
+    width: 0;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #087f5b, #29b17d);
+    transition: width 0.5s ease;
+}
+
+.finance-legend {
+    display: grid;
+    gap: 13px;
+    margin-top: 23px;
+}
+
+.finance-legend>span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--overview-muted);
+    font-size: 12px;
+}
+
+.finance-legend strong {
+    margin-left: auto;
+    color: var(--overview-ink);
+}
+
+.green-dot,
+.gold-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.green-dot {
+    background: #18a66a;
+}
+
+.gold-dot {
+    background: var(--overview-gold);
+}
+
+.text-button {
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 9px;
+    color: var(--overview-blue);
+    background: #edf4ff;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.empty-state {
+    padding: 24px 15px;
+    border: 1px dashed #dbe4ef;
+    border-radius: 14px;
+    color: var(--overview-muted);
+    background: #f9fbfe;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Messages */
+.app-message {
+    margin: 18px 30px 0;
+}
+
+.app-message.hidden,
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 1150px) {
+    .stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .member-shortcuts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .member-shortcut:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 850px) {
+    .page-section {
+        padding: 22px;
+    }
+
+    .topbar {
+        padding: 17px 22px;
+    }
+
+    .section-intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lower-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .page-section {
+        padding: 16px;
+    }
+
+    .topbar {
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    .topbar-title h2 {
+        font-size: 18px;
+    }
+
+    .topbar-title .eyebrow {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .user-chip {
+        gap: 7px;
+        padding: 5px;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .user-chip strong {
+        max-width: 100px;
+        font-size: 10px;
+    }
+
+    .user-chip small {
+        font-size: 10px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+    }
+
+    .section-intro h1 {
+        font-size: 27px;
+    }
+
+    .status-pill {
+        font-size: 10px;
+    }
+
+    .member-welcome {
+        min-height: 280px;
+        padding: 27px 22px;
+        border-radius: 20px;
+    }
+
+    .member-welcome h1 {
+        font-size: 30px;
+    }
+
+    .member-welcome p {
+        font-size: 12px;
+    }
+
+    .member-shortcuts,
+    .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .member-shortcut:last-child {
+        grid-column: auto;
+    }
+
+    .stat-card,
+    .content-card,
+    .member-shortcut {
+        padding: 20px;
+    }
+
+    .app-message {
+        margin: 15px 16px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* Styles spécifiques à la page overview. */
+#overview-section .stat-grid,
+#overview-section .lower-grid {
+    min-width: 0;
+}
+
+
+/* =====================================================
+   ESPACE MEMBRE — IDENTITÉ VISUELLE DE LA PAGE D'ACCUEIL
+   ===================================================== */
+
+/* Fond général de l'espace membre */
+.member-dashboard-only {
+    position: relative;
+    isolation: isolate;
+    min-height: calc(100vh - 100px);
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 24px;
+
+    background:
+        radial-gradient(ellipse at 85% 15%,
+            rgba(214, 173, 85, 0.20),
+            transparent 35%),
+        radial-gradient(ellipse at 10% 5%,
+            rgba(18, 97, 207, 0.12),
+            transparent 40%),
+        linear-gradient(145deg,
+            #ffffff 0%,
+            #f4f8ff 48%,
+            #fffaf0 100%);
+
+    border: 1px solid rgba(7, 84, 201, 0.10);
+    box-shadow: 0 18px 50px rgba(6, 59, 145, 0.08);
+}
+
+/* Motif décoratif discret */
+.member-dashboard-only::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -150px;
+    right: -120px;
+
+    width: 420px;
+    height: 420px;
+
+    border: 1px solid rgba(214, 173, 85, 0.25);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 35px rgba(214, 173, 85, 0.035),
+        0 0 0 70px rgba(214, 173, 85, 0.025),
+        0 0 0 105px rgba(214, 173, 85, 0.018);
+
+    pointer-events: none;
+}
+
+/* Décoration bleue en bas */
+.member-dashboard-only::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -100px;
+    left: -5%;
+    width: 110%;
+    height: 210px;
+
+    background: linear-gradient(110deg,
+            #063b91 0%,
+            #0754c9 65%,
+            #1680ff 100%);
+
+    clip-path: polygon(0 40%,
+            18% 18%,
+            38% 48%,
+            62% 75%,
+            82% 72%,
+            100% 35%,
+            100% 100%,
+            0 100%);
+
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+/* Contenu au-dessus des décorations */
+.member-dashboard-only>* {
+    position: relative;
+}
+
+/* =====================================================
+   CARTE DE BIENVENUE
+   ===================================================== */
+
+.member-welcome {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 320px;
+    padding: 42px 46px;
+    margin-bottom: 30px;
+
+    color: #063b91;
+
+    background:
+        radial-gradient(circle at 88% 20%,
+            rgba(255, 255, 255, 0.65),
+            transparent 25%),
+        linear-gradient(115deg,
+            #ffffff 0%,
+            #edf5ff 52%,
+            #fff8e9 100%);
+
+    border: 1px solid rgba(214, 173, 85, 0.35);
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(6, 59, 145, 0.09);
+}
+
+/* Cercles décoratifs */
+.member-welcome::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 330px;
+    height: 330px;
+    top: -125px;
+    right: -60px;
+
+    border: 1px solid rgba(214, 173, 85, 0.35);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 25px rgba(214, 173, 85, 0.06),
+        0 0 0 50px rgba(214, 173, 85, 0.04),
+        0 0 0 75px rgba(214, 173, 85, 0.025);
+
+    pointer-events: none;
+}
+
+/* Petit accent doré */
+.member-welcome::after {
+    content: "";
+    display: block;
+
+    width: 68px;
+    height: 4px;
+    margin-top: 22px;
+
+    background: linear-gradient(90deg,
+            #b98a37,
+            #e8cf91);
+
+    border-radius: 20px;
+}
+
+/* Badge de bienvenue */
+.member-welcome .welcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    width: fit-content;
+    padding: 9px 15px;
+    margin-bottom: 20px;
+
+    color: #0754c9;
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 1px solid rgba(7, 84, 201, 0.12);
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Titre */
+.member-welcome h1 {
+    max-width: 760px;
+    margin: 0 0 16px;
+
+    color: #063b91;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+/* Nom du membre */
+.member-welcome h1 span {
+    color: #b58b43;
+}
+
+/* Texte de bienvenue */
+.member-welcome p {
+    max-width: 620px;
+    margin: 0;
+
+    color: #355578;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+/* Citation */
+.member-welcome .welcome-quote {
+    margin-top: 22px;
+
+    color: #8b6a31;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* =====================================================
+   RACCOURCIS DE L'ESPACE MEMBRE
+   ===================================================== */
+
+.member-dashboard-only .member-shortcut {
+    position: relative;
+    overflow: hidden;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(7, 84, 201, 0.10);
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(6, 59, 145, 0.045);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.member-dashboard-only .member-shortcut:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(214, 173, 85, 0.65);
+
+    box-shadow: 0 16px 35px rgba(6, 59, 145, 0.11);
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .member-dashboard-only {
+        min-height: auto;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .member-welcome {
+        min-height: 280px;
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    .member-welcome h1 {
+        font-size: 32px;
+    }
+
+    .member-welcome p {
+        font-size: 14px;
+    }
+
+    .member-welcome::before {
+        right: -220px;
+        opacity: 0.6;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .member-dashboard-only .member-shortcut {
+        transition: none;
+    }
+}
+
+
+/* =====================================================
+   ESPACE MEMBRE : ARRIÈRE-PLAN IDENTIQUE À L'ACCUEIL
+   Visible uniquement lorsque le panneau membre est affiché
+   ===================================================== */
+
+#member-dashboard-panel:not(.hidden) {
+    position: relative;
+    isolation: isolate;
+    min-height: 75vh;
+    padding: 28px;
+    overflow: hidden;
+
+    background-color: #f8f7f2;
+    background-image:
+        linear-gradient(90deg,
+            rgba(255, 253, 247, 0.96) 0%,
+            rgba(255, 253, 247, 0.88) 42%,
+            rgba(255, 253, 247, 0.25) 100%),
+        url("images/fond-mosquee.png");
+
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 22px;
+}
+
+/* Carte de bienvenue : transparente pour laisser apparaître le paysage */
+#member-dashboard-panel:not(.hidden) .member-welcome {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(214, 173, 85, 0.55);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 35px rgba(6, 59, 145, 0.10);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Titre */
+#member-dashboard-panel:not(.hidden) .member-welcome h1 {
+    color: #063b91;
+}
+
+/* Nom du membre */
+#member-dashboard-panel:not(.hidden) .member-welcome h1 span {
+    color: #b58b43;
+}
+
+/* Texte de bienvenue */
+#member-dashboard-panel:not(.hidden) .member-welcome p {
+    color: #24476e;
+}
+
+/* Cartes de navigation */
+#member-dashboard-panel:not(.hidden) .member-shortcut {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(214, 173, 85, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Téléphone */
+@media (max-width: 768px) {
+    #member-dashboard-panel:not(.hidden) {
+        min-height: 70vh;
+        padding: 14px;
+
+        background-position: center, 60% center;
+    }
+
+    #member-dashboard-panel:not(.hidden) .member-welcome {
+        padding: 24px 18px;
+    }
+}

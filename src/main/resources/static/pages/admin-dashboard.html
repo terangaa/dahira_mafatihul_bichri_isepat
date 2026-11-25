@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10243e">
+    <title>Administration | Dahira Mafatihoul Bichri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #10243e;
+            --navy2: #173653;
+            --gold: #c99b45;
+            --gold-light: #f4e8ce;
+            --ink: #233247;
+            --muted: #718096;
+            --line: #e6ebf1;
+            --bg: #f4f7fb;
+            --white: #fff;
+            --green: #16845b;
+            --red: #c44747;
+            --shadow: 0 12px 32px rgba(16, 36, 62, .08)
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        .layout {
+            min-height: 100vh
+        }
+
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: 258px;
+            background: linear-gradient(180deg, var(--navy), #0b1b30);
+            color: #fff;
+            padding: 26px 18px;
+            display: flex;
+            flex-direction: column;
+            z-index: 10
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 8px 26px;
+            border-bottom: 1px solid #ffffff1c
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #e3bd72, var(--gold));
+            color: var(--navy);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 17px
+        }
+
+        .brand strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 17px
+        }
+
+        .brand small {
+            display: block;
+            color: #c4cfda;
+            font-size: 11px;
+            margin-top: 3px
+        }
+
+        .side-label {
+            color: #8294a9;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            font-weight: 700;
+            padding: 25px 12px 9px
+        }
+
+        .nav {
+            display: grid;
+            gap: 5px
+        }
+
+        .nav button {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: #c8d2df;
+            text-align: left;
+            padding: 12px 13px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: .2s
+        }
+
+        .nav button:hover,
+        .nav button.active {
+            background: #ffffff14;
+            color: #fff
+        }
+
+        .nav button.active {
+            box-shadow: inset 3px 0 var(--gold)
+        }
+
+        .nav .ico {
+            width: 20px;
+            text-align: center;
+            color: #e0bd79;
+            font-size: 16px
+        }
+
+        .side-bottom {
+            margin-top: auto
+        }
+
+        .quote {
+            border: 1px solid #ffffff1b;
+            background: #ffffff09;
+            border-radius: 13px;
+            padding: 14px;
+            color: #d2dbe5;
+            font-size: 12px;
+            line-height: 1.6
+        }
+
+        .quote b {
+            display: block;
+            color: #e5c27e;
+            font-size: 10px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+
+        .logout {
+            margin-top: 14px;
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ffffff2b;
+            border-radius: 10px;
+            background: transparent;
+            color: #fff;
+            font-weight: 600
+        }
+
+        .main {
+            margin-left: 258px;
+            min-height: 100vh
+        }
+
+        .topbar {
+            height: 78px;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 34px;
+            position: sticky;
+            top: 0;
+            z-index: 5
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            font-weight: 700
+        }
+
+        .topbar h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin: 3px 0 0;
+            color: var(--navy)
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 11px
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--gold-light);
+            color: #805d20;
+            font-weight: 800
+        }
+
+        .user-info strong {
+            display: block;
+            font-size: 12px
+        }
+
+        .user-info small {
+            color: var(--muted);
+            font-size: 11px
+        }
+
+        .content {
+            padding: 30px 34px 55px;
+            max-width: 1500px;
+            margin: auto
+        }
+
+        .welcome {
+            background: linear-gradient(115deg, #10243e, #1c4261);
+            color: #fff;
+            border-radius: 18px;
+            padding: 27px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden
+        }
+
+        .welcome:after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid #ffffff20;
+            border-radius: 50%;
+            right: 8%;
+            top: -130px;
+            box-shadow: 0 0 0 28px #ffffff08, 0 0 0 58px #ffffff05
+        }
+
+        .welcome h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin: 6px 0
+        }
+
+        .welcome p {
+            margin: 0;
+            color: #cbd7e3;
+            font-size: 13px
+        }
+
+        .welcome-tag {
+            z-index: 1;
+            border: 1px solid #ffffff40;
+            border-radius: 30px;
+            padding: 9px 14px;
+            font-size: 11px;
+            color: #f0d59f;
+            white-space: nowrap
+        }
+
+        .section {
+            display: none
+        }
+
+        .section.active {
+            display: block
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 30px 0 17px
+        }
+
+        .section-head h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--navy);
+            font-size: 21px;
+            margin: 0
+        }
+
+        .section-head p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 5px 0 0
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 15px;
+            margin-top: 22px
+        }
+
+        .stat,
+        .panel {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            box-shadow: var(--shadow)
+        }
+
+        .stat {
+            padding: 19px
+        }
+
+        .stat-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: #f7f0e3;
+            color: #98702d;
+            display: grid;
+            place-items: center;
+            font-size: 17px
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .stat-value {
+            font-size: 27px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 13px
+        }
+
+        .stat-note {
+            font-size: 10px;
+            color: #8995a4;
+            margin-top: 3px
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+            margin-top: 18px
+        }
+
+        .panel {
+            padding: 20px
+        }
+
+        .panel h3 {
+            font-size: 14px;
+            color: var(--navy);
+            margin: 0 0 15px
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        .quick {
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            background: #fff;
+            padding: 14px;
+            text-align: left;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 12px
+        }
+
+        .quick:hover {
+            border-color: var(--gold);
+            background: #fffcf6
+        }
+
+        .quick span {
+            display: block;
+            color: var(--gold);
+            font-size: 19px;
+            margin-bottom: 8px
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 9px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .search {
+            min-width: 210px;
+            max-width: 300px;
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 10px 12px;
+            outline: none;
+            background: #fff;
+            font-size: 12px
+        }
+
+        .search:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 0 3px #c99b451c;
+            outline: none
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 9px;
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: #fff
+        }
+
+        .btn-primary:hover {
+            background: var(--navy2)
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #fff
+        }
+
+        .btn-light {
+            background: #f0f3f7;
+            color: var(--navy)
+        }
+
+        .btn-danger {
+            background: #fff0f0;
+            color: var(--red)
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px
+        }
+
+        .data-table th {
+            background: #f7f9fc;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: .7px;
+            font-size: 9px;
+            text-align: left;
+            padding: 13px 15px;
+            white-space: nowrap
+        }
+
+        .data-table td {
+            padding: 13px 15px;
+            border-top: 1px solid #edf0f4;
+            font-size: 11px;
+            vertical-align: middle
+        }
+
+        .data-table tr:hover td {
+            background: #fcfdff
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .actions {
+            display: flex;
+            gap: 6px
+        }
+
+        .icon-btn {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 7px;
+            padding: 6px 9px;
+            font-size: 11px
+        }
+
+        .icon-btn.edit {
+            color: #946b24
+        }
+
+        .icon-btn.delete {
+            color: var(--red)
+        }
+
+        .badge {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 5px 9px;
+            font-size: 9px;
+            font-weight: 700;
+            background: #eef3f8;
+            color: #52657a
+        }
+
+        .badge.ACTIVE,
+        .badge.PAYE,
+        .badge.TERMINE,
+        .badge.REALISE {
+            background: #e6f6ee;
+            color: #16845b
+        }
+
+        .badge.INACTIVE,
+        .badge.ANNULE {
+            background: #fff0f0;
+            color: #bd4444
+        }
+
+        .badge.PENDING,
+        .badge.NON_PAYEE,
+        .badge.PLANNED,
+        .badge.EN_ATTENTE {
+            background: #fff5df;
+            color: #9b7025
+        }
+
+        .empty {
+            padding: 28px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .notice {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin: 14px 0;
+            display: none
+        }
+
+        .notice.show {
+            display: block
+        }
+
+        .notice.error {
+            background: #fff0f0;
+            color: #ad3434
+        }
+
+        .notice.success {
+            background: #eaf8f0;
+            color: #18744e
+        }
+
+        .finance-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 17px
+        }
+
+        .finance-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px
+        }
+
+        .finance-card small {
+            font-size: 10px;
+            color: var(--muted)
+        }
+
+        .finance-card strong {
+            display: block;
+            font-size: 20px;
+            color: var(--navy);
+            margin-top: 8px
+        }
+
+        .form-panel {
+            margin-bottom: 17px
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px
+        }
+
+        .field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #526176;
+            margin-bottom: 6px
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 10px 11px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-size: 12px;
+            background: #fff;
+            color: var(--ink)
+        }
+
+        .field textarea {
+            min-height: 85px;
+            resize: vertical
+        }
+
+        .field.full {
+            grid-column: 1/-1
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 15px
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        .loading {
+            padding: 18px;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            color: #8a96a5;
+            font-size: 10px;
+            text-align: center
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: #08182bb8;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            z-index: 30
+        }
+
+        .modal-backdrop.open {
+            display: flex
+        }
+
+        .modal {
+            background: #fff;
+            width: min(620px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 25px 70px #0003
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px
+        }
+
+        .modal-head h3 {
+            margin: 0;
+            color: var(--navy);
+            font-family: "Playfair Display", serif
+        }
+
+        .close {
+            border: 0;
+            background: #f1f3f6;
+            border-radius: 8px;
+            width: 30px;
+            height: 30px;
+            font-size: 18px
+        }
+
+        @media(max-width:1050px) {
+            .sidebar {
+                width: 220px
+            }
+
+            .main {
+                margin-left: 220px
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .finance-cards {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:760px) {
+            .sidebar {
+                position: static;
+                width: auto;
+                height: auto;
+                padding: 14px
+            }
+
+            .brand {
+                padding-bottom: 12px
+            }
+
+            .side-label,
+            .quote,
+            .side-bottom {
+                display: none
+            }
+
+            .nav {
+                display: flex;
+                overflow: auto;
+                margin-top: 12px
+            }
+
+            .nav button {
+                white-space: nowrap;
+                width: auto;
+                padding: 9px 11px
+            }
+
+            .main {
+                margin-left: 0
+            }
+
+            .topbar {
+                height: 68px;
+                padding: 0 16px
+            }
+
+            .content {
+                padding: 18px 14px 35px
+            }
+
+            .welcome {
+                padding: 21px;
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .welcome h2 {
+                font-size: 21px
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+
+            .section-head {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .stats {
+                gap: 10px
+            }
+
+            .stat {
+                padding: 14px
+            }
+
+            .stat-value {
+                font-size: 23px
+            }
+
+            .user-info {
+                display: none
+            }
+        }
+
+        @media(max-width:430px) {
+
+            .stats,
+            .finance-cards {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr
+            }
+
+            .field.full {
+                grid-column: auto
+            }
+
+            .toolbar {
+                width: 100%
+            }
+
+            .search {
+                max-width: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">MB</div>
+                <div><strong>Mafatihoul Bichri</strong><small>Touba · ISEPAT Diamniadio</small></div>
+            </div>
+            <div class="side-label">Espace administrateur</div>
+            <nav class="nav" aria-label="Navigation principale">
+                <button class="active" data-section="overview"><span class="ico">⌂</span>Vue d'ensemble</button>
+                <button data-section="members"><span class="ico">♙</span>Membres</button>
+                <button data-section="finance"><span class="ico">◈</span>Mes finances</button>
+                <button data-section="commissions"><span class="ico">▤</span>Commissions</button>
+                <button data-section="projects"><span class="ico">◆</span>Projets</button>
+                <button data-section="events"><span class="ico">▣</span>Événements</button>
+                <button data-section="history"><span class="ico">◷</span>Historique</button>
+            </nav>
+            <div class="side-bottom">
+                <div class="quote"><b>Notre engagement</b>« La régularité construit les grandes choses. »</div><button
+                    class="logout" id="logoutBtn">↪ &nbsp; Quitter la session</button>
+            </div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <div class="eyebrow">Dahira Mafatihoul Bichri</div>
+                    <h1 id="pageTitle">Vue d'ensemble</h1>
+                </div>
+                <div class="user">
+                    <div class="avatar" id="avatar">AD</div>
+                    <div class="user-info"><strong id="userEmail">Administrateur</strong><small>Administrateur</small>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="welcome">
+                    <div>
+                        <div class="eyebrow">Espace de gestion</div>
+                        <h2>Bienvenue dans votre espace administrateur</h2>
+                        <p>Gérez les activités du Dahira et consultez vos informations personnelles.</p>
+                    </div>
+                    <div class="welcome-tag">● &nbsp; Espace sécurisé</div>
+                </div>
+                <div id="globalNotice" class="notice"></div>
+
+                <section class="section active" id="section-overview">
+                    <div class="stats">
+                        <article class="stat">
+                            <div class="stat-top"><span class="stat-label">Membres inscrits</span><span
+                                    class="stat-icon">♙</span></div>
+                            <div class="stat-value" id="statMembers">—</div>
+                            <div class="stat-note">Annuaire consultable</div>
+                        </article>
+                        <article class="stat">
+                            <div class="stat-top"><span class="stat-label">Commissions</span><span
+                                    class="stat-icon">▤</span></div>
+                            <div class="stat-value" id="statCommissions">—</div>
+                            <div class="stat-note">Organisation du Dahira</div>
+                        </article>
+                        <article class="stat">
+                            <div class="stat-top"><span class="stat-label">Projets</span><span
+                                    class="stat-icon">◆</span></div>
+                            <div class="stat-value" id="statProjects">—</div>
+                            <div class="stat-note">Actions et initiatives</div>
+                        </article>
+                        <article class="stat">
+                            <div class="stat-top"><span class="stat-label">Événements</span><span
+                                    class="stat-icon">▣</span></div>
+                            <div class="stat-value" id="statEvents">—</div>
+                            <div class="stat-note">Activités programmées</div>
+                        </article>
+                    </div>
+                    <div class="grid-2">
+                        <div class="panel">
+                            <h3>Accès rapide</h3>
+                            <div class="quick-grid">
+                                <button class="quick" data-go="members"><span>♙</span>Consulter les membres</button>
+                                <button class="quick" data-go="finance"><span>◈</span>Consulter mes finances</button>
+                                <button class="quick" data-go="projects"><span>◆</span>Gérer les projets</button>
+                                <button class="quick" data-go="events"><span>▣</span>Gérer les événements</button>
+                                <button type="button"
+                                    onclick="window.location.href='/pages/membership-requests.html'"><span
+                                        class="ico">✉</span>Demandes d'adhésion</button>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h3>Vos autorisations</h3>
+                            <p class="muted" style="font-size:12px;line-height:1.8;margin:0">Vous pouvez gérer les
+                                commissions, les projets et les événements. La consultation des membres et de vos
+                                propres finances est autorisée. L'historique reste en lecture seule. Les finances des
+                                autres membres et la gestion des comptes sont réservées aux rôles habilités.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" id="section-members">
+                    <div class="section-head">
+                        <div>
+                            <h2>Annuaire des membres</h2>
+                            <p>Consultation uniquement : aucune action de modification ou de suppression.</p>
+                        </div>
+                        <div class="toolbar"><input class="search" id="memberSearch"
+                                placeholder="Rechercher un membre..."></div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nom complet</th>
+                                    <th>Téléphone</th>
+                                    <th>Commission</th>
+                                    <th>Filière</th>
+                                    <th>Promotion</th>
+                                    <th>Inscription</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody id="membersBody">
+                                <tr>
+                                    <td colspan="7" class="empty">Chargement des membres...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="section-finance">
+                    <div class="section-head">
+                        <div>
+                            <h2>Mes finances personnelles</h2>
+                            <p>Ces données concernent uniquement le compte actuellement connecté.</p>
+                        </div><button class="btn btn-light" id="refreshFinance">↻ Actualiser</button>
+                    </div>
+                    <div class="finance-cards">
+                        <div class="finance-card"><small>Total cotisations attendues</small><strong
+                                id="finExpected">—</strong></div>
+                        <div class="finance-card"><small>Total payé</small><strong id="finPaid">—</strong></div>
+                        <div class="finance-card"><small>Reste à payer</small><strong id="finRemaining">—</strong></div>
+                        <div class="finance-card"><small>Mes contributions</small><strong
+                                id="finContributions">—</strong></div>
+                    </div>
+                    <div class="panel" style="margin-bottom:17px">
+                        <h3>Mes cotisations mensuelles</h3>
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Période</th>
+                                        <th>Montant attendu</th>
+                                        <th>Montant payé</th>
+                                        <th>Date paiement</th>
+                                        <th>Mode</th>
+                                        <th>Statut</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentsBody">
+                                    <tr>
+                                        <td colspan="6" class="empty">Chargement...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <h3>Mes contributions</h3>
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Événement / projet</th>
+                                        <th>Montant demandé</th>
+                                        <th>Montant payé</th>
+                                        <th>Date</th>
+                                        <th>Mode</th>
+                                        <th>Statut</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contributionsBody">
+                                    <tr>
+                                        <td colspan="6" class="empty">Chargement...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="contributionInfo" class="notice"></div>
+                    </div>
+                </section>
+
+                <section class="section" id="section-commissions">
+                    <div class="section-head">
+                        <div>
+                            <h2>Gestion des commissions</h2>
+                            <p>Créer, modifier, consulter et supprimer les commissions.</p>
+                        </div>
+                        <div class="toolbar"><input class="search" id="commissionSearch"
+                                placeholder="Rechercher..."><button class="btn btn-primary" data-create="commission">＋
+                                Ajouter</button></div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="commissionsBody">
+                                <tr>
+                                    <td colspan="3" class="empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="section-projects">
+                    <div class="section-head">
+                        <div>
+                            <h2>Gestion des projets</h2>
+                            <p>Suivez les projets et leurs budgets.</p>
+                        </div>
+                        <div class="toolbar"><input class="search" id="projectSearch"
+                                placeholder="Rechercher..."><button class="btn btn-primary" data-create="project">＋
+                                Ajouter</button></div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Projet</th>
+                                    <th>Début</th>
+                                    <th>Fin</th>
+                                    <th>Budget prévu</th>
+                                    <th>Collecté</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projectsBody">
+                                <tr>
+                                    <td colspan="7" class="empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="section-events">
+                    <div class="section-head">
+                        <div>
+                            <h2>Gestion des événements</h2>
+                            <p>Organisez les événements du Dahira.</p>
+                        </div>
+                        <div class="toolbar"><input class="search" id="eventSearch" placeholder="Rechercher..."><button
+                                class="btn btn-primary" data-create="event">＋ Ajouter</button></div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Événement</th>
+                                    <th>Date</th>
+                                    <th>Lieu</th>
+                                    <th>Budget</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eventsBody">
+                                <tr>
+                                    <td colspan="6" class="empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="section-history">
+                    <div class="section-head">
+                        <div>
+                            <h2>Historique du Dahira</h2>
+                            <p>Registre consultable en lecture seule.</p>
+                        </div><input class="search" id="historySearch" placeholder="Rechercher...">
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Année</th>
+                                    <th>Date</th>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyBody">
+                                <tr>
+                                    <td colspan="4" class="empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="footer-note">Dahira Mafatihoul Bichri · Touba ISEPAT de Diamniadio</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-backdrop" id="entityModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal">
+            <div class="modal-head">
+                <h3 id="modalTitle">Ajouter</h3><button class="close" id="closeModal" aria-label="Fermer">×</button>
+            </div>
+            <form id="entityForm">
+                <div class="form-grid" id="formFields"></div>
+                <div class="form-actions"><button type="button" class="btn btn-light"
+                        id="cancelModal">Annuler</button><button type="submit" class="btn btn-primary"
+                        id="saveEntity">Enregistrer</button></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            'use strict';
+            const $ = id => document.getElementById(id);
+            const readStore = key => localStorage.getItem(key) || sessionStorage.getItem(key) || '';
+            const token = readStore('dahira_token') || readStore('token') || readStore('jwt');
+            const role = (readStore('dahira_role') || '').replace(/^ROLE_/, '').toUpperCase();
+            const adminRole = (readStore('dahira_admin_role') || '').toUpperCase();
+            const email = readStore('dahira_email') || 'Administrateur';
+            const allowed = ['ADMINISTRATEUR', 'ADMIN_PRINCIPAL'].includes(role) || (role === 'ADMIN' && ['ADMINISTRATEUR', 'ADMIN_PRINCIPAL'].includes(adminRole));
+            if (!token) { location.replace('/login.html'); return; }
+            if (!allowed || (role === 'ADMIN' && adminRole !== 'ADMINISTRATEUR')) {
+                alert("Cette page est réservée au rôle ADMINISTRATEUR.");
+                location.replace('/login.html');
+                return;
+            }
+            $('userEmail').textContent = email;
+            $('avatar').textContent = email.slice(0, 2).toUpperCase();
+
+            const api = async (url, options = {}) => {
+                const headers = { 'Authorization': `Bearer ${token}`, ...(options.body ? { 'Content-Type': 'application/json' } : {}), ...(options.headers || {}) };
+                const response = await fetch(url, { ...options, headers });
+                if (response.status === 401) { logout(); throw new Error('Session expirée. Veuillez vous reconnecter.'); }
+                if (response.status === 403) throw new Error("Accès refusé par le serveur (403). Vérifiez SecurityConfig.");
+                if (!response.ok) {
+                    let message = `Erreur HTTP ${response.status}`;
+                    try { const data = await response.json(); message = data.message || data.error || message; } catch { }
+                    throw new Error(message);
+                }
+                if (response.status === 204) return null;
+                const type = response.headers.get('content-type') || '';
+                return type.includes('application/json') ? response.json() : null;
+            };
+            function logout() { ['dahira_token', 'token', 'jwt', 'dahira_role', 'dahira_admin_role', 'dahira_email'].forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k) }); location.replace('/login.html') }
+            $('logoutBtn').addEventListener('click', logout);
+
+            const showNotice = (message, type = 'error', target = 'globalNotice') => { const el = $(target); if (!el) return; el.textContent = message; el.className = `notice show ${type}`; };
+            const clearNotice = target => { const el = $(target); if (el) el.className = 'notice'; };
+            const listFrom = data => Array.isArray(data) ? data : (data?.content || data?.data || data?.items || []);
+            const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            const money = value => Number(value || 0).toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' FCFA';
+            const date = value => value ? new Date(value + 'T00:00:00').toLocaleDateString('fr-FR') : '—';
+            const badge = value => `<span class="badge ${esc(value)}">${esc(value || '—')}</span>`;
+            const setRows = (id, rows, cols, render) => { const body = $(id); body.innerHTML = rows.length ? rows.map(render).join('') : `<tr><td colspan="${cols}" class="empty">Aucune donnée disponible.</td></tr>`; };
+
+            const config = {
+                commission: {
+                    url: '/api/commissions', title: 'commission', fields: [
+                        { name: 'name', label: 'Nom de la commission', type: 'text', required: true, full: true },
+                        { name: 'description', label: 'Description', type: 'textarea', full: true }]
+                },
+                project: {
+                    url: '/api/projects', title: 'projet', fields: [
+                        { name: 'name', label: 'Nom du projet', type: 'text', required: true, full: true },
+                        { name: 'description', label: 'Description', type: 'textarea', full: true },
+                        { name: 'startDate', label: 'Date de début', type: 'date', required: true },
+                        { name: 'endDate', label: 'Date de fin', type: 'date', required: true },
+                        { name: 'plannedBudget', label: 'Budget prévu (FCFA)', type: 'number', min: '0', step: '0.01' },
+                        { name: 'collectedAmount', label: 'Montant collecté (FCFA)', type: 'number', min: '0', step: '0.01' },
+                        { name: 'status', label: 'Statut', type: 'select', options: ['ACTIVE', 'PLANNED', 'COMPLETED', 'CANCELLED'] }]
+                },
+                event: {
+                    url: '/api/events', title: 'événement', fields: [
+                        { name: 'name', label: 'Nom de l’événement', type: 'text', required: true, full: true },
+                        { name: 'description', label: 'Description', type: 'textarea', full: true },
+                        { name: 'eventDate', label: 'Date de l’événement', type: 'date', required: true },
+                        { name: 'location', label: 'Lieu', type: 'text' },
+                        { name: 'budget', label: 'Budget (FCFA)', type: 'number', min: '0', step: '0.01' },
+                        { name: 'status', label: 'Statut', type: 'select', options: ['PLANNED', 'ACTIVE', 'COMPLETED', 'CANCELLED'] }]
+                }
+            };
+            const state = { commission: [], project: [], event: [], members: [], history: [], editing: null, kind: null };
+
+            async function loadCollection(kind) {
+                const c = config[kind], data = listFrom(await api(c.url));
+                state[kind] = data;
+                if (kind === 'commission') {
+                    $('statCommissions').textContent = data.length;
+                    setRows('commissionsBody', data, 3, x => `<tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.description || '—')}</td><td>${actions(kind, x.id)}</td></tr>`);
+                }
+                if (kind === 'project') {
+                    $('statProjects').textContent = data.length;
+                    setRows('projectsBody', data, 7, x => `<tr><td><strong>${esc(x.name)}</strong><br><span class="muted">${esc(x.description || '')}</span></td><td>${date(x.startDate)}</td><td>${date(x.endDate)}</td><td>${money(x.plannedBudget)}</td><td>${money(x.collectedAmount)}</td><td>${badge(x.status)}</td><td>${actions(kind, x.id)}</td></tr>`);
+                }
+                if (kind === 'event') {
+                    $('statEvents').textContent = data.length;
+                    setRows('eventsBody', data, 6, x => `<tr><td><strong>${esc(x.name)}</strong><br><span class="muted">${esc(x.description || '')}</span></td><td>${date(x.eventDate)}</td><td>${esc(x.location || '—')}</td><td>${money(x.budget)}</td><td>${badge(x.status)}</td><td>${actions(kind, x.id)}</td></tr>`);
+                }
+            }
+            function actions(kind, id) { return `<div class="actions"><button class="icon-btn edit" data-edit="${kind}" data-id="${id}">Modifier</button><button class="icon-btn delete" data-delete="${kind}" data-id="${id}">Supprimer</button></div>` }
+            async function loadMembers() {
+                const data = listFrom(await api('/api/members')); state.members = data; $('statMembers').textContent = data.length;
+                renderMembers(data);
+            }
+            function renderMembers(rows) { setRows('membersBody', rows, 7, x => `<tr><td><strong>${esc(x.firstName)} ${esc(x.lastName)}</strong></td><td>${esc(x.phone || '—')}</td><td>${esc(x.commission || '—')}</td><td>${esc(x.filiere || '—')}</td><td>${esc(x.promotion || '—')}</td><td>${date(x.registrationDate)}</td><td>${badge(x.status)}</td></tr>`) }
+            async function loadHistory() {
+                const data = listFrom(await api('/api/history')); state.history = data;
+                setRows('historyBody', data, 4, x => `<tr><td>${esc(x.year)}</td><td>${date(x.eventDate)}</td><td><strong>${esc(x.title)}</strong></td><td>${esc(x.description || '—')}</td></tr>`);
+            }
+            async function loadFinance() {
+                clearNotice('contributionInfo');
+                try {
+                    const summary = await api('/api/my-finances');
+                    $('finExpected').textContent = money(summary.totalMonthlyPayments);
+                    $('finPaid').textContent = money(summary.totalPaid);
+                    $('finRemaining').textContent = money(summary.totalRemaining);
+                    $('finContributions').textContent = money(summary.totalContributions);
+                } catch (e) { ['finExpected', 'finPaid', 'finRemaining', 'finContributions'].forEach(id => $(id).textContent = '—'); showNotice(e.message, 'error') }
+                try {
+                    const payments = listFrom(await api('/api/my-monthly-payments'));
+                    setRows('paymentsBody', payments, 6, x => `<tr><td>${esc(x.month)}/${esc(x.year)}</td><td>${money(x.expectedAmount)}</td><td>${money(x.paidAmount)}</td><td>${date(x.paymentDate)}</td><td>${esc(x.paymentMethod || '—')}</td><td>${badge(x.status)}</td></tr>`);
+                } catch (e) { $('paymentsBody').innerHTML = `<tr><td colspan="6" class="empty">${esc(e.message)}</td></tr>` }
+                try {
+                    const contributions = listFrom(await api('/api/my-contributions'));
+                    setRows('contributionsBody', contributions, 6, x => `<tr><td>${esc(x.eventOrProjectName || '—')}</td><td>${money(x.requestedAmount)}</td><td>${money(x.paidAmount)}</td><td>${date(x.contributionDate)}</td><td>${esc(x.paymentMethod || '—')}</td><td>${badge(x.status)}</td></tr>`);
+                } catch (e) {
+                    $('contributionsBody').innerHTML = `<tr><td colspan="6" class="empty">La consultation de vos contributions nécessite la route sécurisée GET /api/my-contributions.</td></tr>`;
+                    showNotice(e.message, 'error', 'contributionInfo');
+                }
+            }
+            async function safeLoad(kind, fn) { try { await fn() } catch (e) { showNotice(`Impossible de charger ${kind} : ${e.message}`); const bodyMap = { members: 'membersBody', history: 'historyBody', commission: 'commissionsBody', project: 'projectsBody', event: 'eventsBody' }; const id = bodyMap[kind]; if (id) $(id).innerHTML = `<tr><td colspan="${kind === 'members' ? 7 : kind === 'project' ? 7 : kind === 'event' ? 6 : kind === 'history' ? 4 : 3}" class="empty">${esc(e.message)}</td></tr>`; } }
+            function navigate(section) {
+                document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id === `section-${section}`));
+                document.querySelectorAll('.nav button').forEach(b => b.classList.toggle('active', b.dataset.section === section));
+                const names = { overview: "Vue d'ensemble", members: 'Membres', finance: 'Mes finances', commissions: 'Commissions', projects: 'Projets', events: 'Événements', history: 'Historique' };
+                $('pageTitle').textContent = names[section] || 'Administration';
+                if (section === 'members') safeLoad('members', loadMembers);
+                if (section === 'finance') loadFinance();
+                if (section === 'commissions') safeLoad('commission', () => loadCollection('commission'));
+                if (section === 'projects') safeLoad('project', () => loadCollection('project'));
+                if (section === 'events') safeLoad('event', () => loadCollection('event'));
+                if (section === 'history') safeLoad('history', loadHistory);
+            }
+            document.querySelectorAll('[data-section]').forEach(b => b.addEventListener('click', () => navigate(b.dataset.section)));
+            document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => navigate(b.dataset.go)));
+
+            function openModal(kind, item = null) {
+                state.kind = kind; state.editing = item;
+                const c = config[kind]; $('modalTitle').textContent = (item ? 'Modifier ' : 'Ajouter ') + c.title;
+                $('formFields').innerHTML = c.fields.map(f => {
+                    const value = item?.[f.name] ?? (f.name === 'status' ? (kind === 'project' ? 'ACTIVE' : 'PLANNED') : '');
+                    let control = '';
+                    if (f.type === 'textarea') control = `<textarea id="field_${f.name}" name="${f.name}">${esc(value)}</textarea>`;
+                    else if (f.type === 'select') control = `<select id="field_${f.name}" name="${f.name}">${f.options.map(o => `<option ${value === o ? 'selected' : ''}>${o}</option>`).join('')}</select>`;
+                    else control = `<input id="field_${f.name}" name="${f.name}" type="${f.type}" value="${esc(value)}" ${f.required ? 'required' : ''} ${f.min !== undefined ? `min="${f.min}"` : ''} ${f.step ? `step="${f.step}"` : ''}>`;
+                    return `<div class="field ${f.full ? 'full' : ''}"><label for="field_${f.name}">${f.label}${f.required ? ' *' : ''}</label>${control}</div>`;
+                }).join('');
+                $('entityModal').classList.add('open');
+            }
+            function closeModal() { $('entityModal').classList.remove('open'); $('entityForm').reset(); state.kind = null; state.editing = null }
+            $('closeModal').addEventListener('click', closeModal); $('cancelModal').addEventListener('click', closeModal);
+            $('entityModal').addEventListener('click', e => { if (e.target === $('entityModal')) closeModal() });
+            document.querySelectorAll('[data-create]').forEach(b => b.addEventListener('click', () => openModal(b.dataset.create)));
+            document.addEventListener('click', async e => {
+                const edit = e.target.closest('[data-edit]'), del = e.target.closest('[data-delete]');
+                if (edit) { const kind = edit.dataset.edit; const item = state[kind].find(x => String(x.id) === edit.dataset.id); if (item) openModal(kind, item) }
+                if (del) {
+                    const kind = del.dataset.delete, id = del.dataset.id, c = config[kind];
+                    if (!confirm(`Voulez-vous vraiment supprimer cet élément (${c.title}) ?`)) return;
+                    try { await api(`${c.url}/${id}`, { method: 'DELETE' }); showNotice('Suppression effectuée.', 'success'); await loadCollection(kind) } catch (err) { showNotice(`Suppression impossible : ${err.message}`) }
+                }
+            });
+            $('entityForm').addEventListener('submit', async e => {
+                e.preventDefault(); const kind = state.kind; if (!kind) return;
+                const c = config[kind], payload = {};
+                c.fields.forEach(f => { const el = $(`field_${f.name}`); if (!el) return; const v = el.value.trim(); payload[f.name] = f.type === 'number' ? (v === '' ? null : Number(v)) : (v === '' ? null : v) });
+                const isEdit = !!state.editing; const url = isEdit ? `${c.url}/${state.editing.id}` : c.url;
+                try { await api(url, { method: isEdit ? 'PUT' : 'POST', body: JSON.stringify(payload) }); closeModal(); showNotice(`${c.title[0].toUpperCase() + c.title.slice(1)} ${isEdit ? 'modifié' : 'ajouté'} avec succès.`, 'success'); await loadCollection(kind) }
+                catch (err) { showNotice(`Enregistrement impossible : ${err.message}`) }
+            });
+
+            $('memberSearch').addEventListener('input', e => renderMembers(state.members.filter(x => `${x.firstName} ${x.lastName} ${x.phone} ${x.commission} ${x.filiere} ${x.promotion}`.toLowerCase().includes(e.target.value.toLowerCase()))));
+            $('commissionSearch').addEventListener('input', e => setRows('commissionsBody', state.commission.filter(x => `${x.name} ${x.description}`.toLowerCase().includes(e.target.value.toLowerCase())), 3, x => `<tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.description || '—')}</td><td>${actions('commission', x.id)}</td></tr>`));
+            $('projectSearch').addEventListener('input', e => setRows('projectsBody', state.project.filter(x => `${x.name} ${x.description} ${x.status}`.toLowerCase().includes(e.target.value.toLowerCase())), 7, x => `<tr><td><strong>${esc(x.name)}</strong></td><td>${date(x.startDate)}</td><td>${date(x.endDate)}</td><td>${money(x.plannedBudget)}</td><td>${money(x.collectedAmount)}</td><td>${badge(x.status)}</td><td>${actions('project', x.id)}</td></tr>`));
+            $('eventSearch').addEventListener('input', e => setRows('eventsBody', state.event.filter(x => `${x.name} ${x.location} ${x.status}`.toLowerCase().includes(e.target.value.toLowerCase())), 6, x => `<tr><td><strong>${esc(x.name)}</strong></td><td>${date(x.eventDate)}</td><td>${esc(x.location || '—')}</td><td>${money(x.budget)}</td><td>${badge(x.status)}</td><td>${actions('event', x.id)}</td></tr>`));
+            $('historySearch').addEventListener('input', e => setRows('historyBody', state.history.filter(x => `${x.year} ${x.title} ${x.description}`.toLowerCase().includes(e.target.value.toLowerCase())), 4, x => `<tr><td>${esc(x.year)}</td><td>${date(x.eventDate)}</td><td><strong>${esc(x.title)}</strong></td><td>${esc(x.description || '—')}</td></tr>`));
+            $('refreshFinance').addEventListener('click', loadFinance);
+
+            // Charger les indicateurs initiaux. Les autres rubriques sont chargées à leur ouverture.
+            Promise.allSettled([loadMembers(), loadCollection('commission'), loadCollection('project'), loadCollection('event')]).then(results => {
+                results.forEach((r, i) => { if (r.status === 'rejected') console.warn('Chargement initial', i, r.reason) });
+            });
+        })();
+    </script>
+</body>
+
+</html>

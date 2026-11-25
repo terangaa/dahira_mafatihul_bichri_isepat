@@ -1,0 +1,2 @@
+/* Styles spécifiques à la page projects. */
+#projects-section .content-card, #projects-section .table-card { min-width: 0; }

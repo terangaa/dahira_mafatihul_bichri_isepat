@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1556a8">
+    <meta name="description" content="Profil personnel du membre - Dahira Mafatihoul Bichri.">
+    <title>Mon profil | Dahira Mafatihoul Bichri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --blue-950: #102e59;
+            --blue-900: #1556a8;
+            --blue-800: #1d68c5;
+            --blue-100: #eaf2fc;
+            --gold: #c7a24b;
+            --ink: #1d2b3d;
+            --muted: #718096;
+            --line: #e5ebf2;
+            --bg: #f4f7fb;
+            --white: #fff;
+            --shadow: 0 14px 38px rgba(22, 54, 94, .08);
+            --radius: 20px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh
+        }
+
+        .shell {
+            width: min(1080px, calc(100% - 36px));
+            margin: auto;
+            padding: 30px 0 46px
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 25px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px
+        }
+
+        .mark {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: linear-gradient(145deg, var(--blue-800), var(--blue-950));
+            color: #fff;
+            font: 700 19px 'Playfair Display', serif;
+            box-shadow: 0 8px 20px #1556a833
+        }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 15px;
+            color: var(--blue-950)
+        }
+
+        .brand p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--blue-900);
+            background: var(--blue-100);
+            border: 1px solid #d7e5f8;
+            padding: 11px 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .hero {
+            padding: 30px 32px;
+            border-radius: 24px;
+            background: linear-gradient(115deg, #102e59, #1d68c5);
+            color: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:after {
+            content: '';
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            right: -70px;
+            top: -110px;
+            border: 1px solid #ffffff30;
+            border-radius: 50%;
+            box-shadow: 0 0 0 28px #ffffff09, 0 0 0 58px #ffffff08
+        }
+
+        .eyebrow {
+            margin: 0 0 9px;
+            color: #f0dca7;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 11px;
+            font-weight: 700
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font: 700 clamp(27px, 4vw, 38px) 'Playfair Display', serif
+        }
+
+        .hero p:last-child {
+            position: relative;
+            z-index: 1;
+            margin: 10px 0 0;
+            color: #ffffffd9;
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        .profile-card {
+            margin-top: 23px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden
+        }
+
+        .card-head {
+            padding: 22px 25px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px
+        }
+
+        .card-head h2 {
+            margin: 0;
+            color: var(--blue-950);
+            font: 700 22px 'Playfair Display', serif
+        }
+
+        .card-head p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .status {
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-100);
+            color: var(--blue-900);
+            font-size: 11px;
+            font-weight: 700
+        }
+
+        .profile-content {
+            padding: 25px
+        }
+
+        .identity {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            padding: 0 0 22px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 22px
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            display: grid;
+            place-items: center;
+            border-radius: 20px;
+            background: var(--blue-100);
+            color: var(--blue-900);
+            font: 700 23px 'Playfair Display', serif
+        }
+
+        .identity h3 {
+            margin: 0;
+            font-size: 19px;
+            color: var(--blue-950)
+        }
+
+        .identity p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px
+        }
+
+        .field {
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: #fbfcfe;
+            min-width: 0
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em
+        }
+
+        .field span {
+            display: block;
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+            min-height: 20px
+        }
+
+        .notice {
+            display: none;
+            margin: 18px 25px 0;
+            padding: 13px 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5
+        }
+
+        .notice.show {
+            display: block
+        }
+
+        .notice.error {
+            background: #fff0f0;
+            color: #a12a2a;
+            border: 1px solid #f4cccc
+        }
+
+        .notice.info {
+            background: #eef5ff;
+            color: #174f91;
+            border: 1px solid #d6e6fb
+        }
+
+        .loading {
+            padding: 30px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .foot {
+            padding: 16px 25px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 11px
+        }
+
+        .foot strong {
+            color: var(--blue-900)
+        }
+
+        @media(max-width:650px) {
+            .shell {
+                width: calc(100% - 22px);
+                padding-top: 18px
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .back {
+                width: 100%;
+                justify-content: center
+            }
+
+            .hero {
+                padding: 25px 22px
+            }
+
+            .card-head {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 20px
+            }
+
+            .profile-content {
+                padding: 18px
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .foot {
+                flex-direction: column
+            }
+
+            .identity {
+                align-items: flex-start
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="mark" aria-hidden="true">MB</div>
+                <div>
+                    <h2>Dahira Mafatihoul Bichri</h2>
+                    <p>Touba ISEPAT de Diamniadio</p>
+                </div>
+            </div>
+            <a class="back" href="/pages/member-dashboard.html">← Retour à mon espace</a>
+        </header>
+        <section class="hero">
+            <p class="eyebrow">Espace personnel · Membre</p>
+            <h1>Mon profil</h1>
+            <p>Consultez les informations personnelles et les renseignements liés à votre inscription au Dahira.</p>
+        </section>
+        <section class="profile-card" aria-labelledby="profile-title">
+            <div class="card-head">
+                <div>
+                    <h2 id="profile-title">Informations personnelles</h2>
+                    <p>Ces informations proviennent de votre compte connecté.</p>
+                </div><span class="status" id="profile-status">Chargement…</span>
+            </div>
+            <div id="profile-message" class="notice" role="status" aria-live="polite"></div>
+            <div id="profile-loading" class="loading">Chargement de votre profil…</div>
+            <div class="profile-content" id="profile-content" hidden>
+                <div class="identity">
+                    <div class="avatar" id="profile-initials">MB</div>
+                    <div>
+                        <h3 id="profile-full-name">—</h3>
+                        <p id="profile-email">—</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field"><label>Prénom</label><span id="profile-first-name">—</span></div>
+                    <div class="field"><label>Nom</label><span id="profile-last-name">—</span></div>
+                    <div class="field"><label>Téléphone</label><span id="profile-phone">—</span></div>
+                    <div class="field"><label>Commission</label><span id="profile-commission">—</span></div>
+                    <div class="field"><label>Filière</label><span id="profile-filiere">—</span></div>
+                    <div class="field"><label>Promotion</label><span id="profile-promotion">—</span></div>
+                    <div class="field"><label>Statut</label><span id="profile-member-status">—</span></div>
+                </div>
+            </div>
+            <footer class="foot"><span>Les informations affichées sont celles autorisées pour votre
+                    compte.</span><strong>Mafatihoul Bichri · <span id="current-year"></span></strong></footer>
+        </section>
+    </main>
+    <script>
+        (() => {
+            const $ = id => document.getElementById(id);
+            $('current-year').textContent = new Date().getFullYear();
+            const tokenKeys = ['dahira_token', 'accessToken', 'access_token', 'jwt', 'jwtToken', 'authToken', 'auth_token'];
+            const token = tokenKeys.map(k => localStorage.getItem(k) || sessionStorage.getItem(k)).find(Boolean);
+            const message = (text, type = 'info') => { const el = $('profile-message'); el.textContent = text; el.className = `notice show ${type}`; };
+            const value = v => (v === null || v === undefined || String(v).trim() === '') ? '—' : String(v);
+            const set = (id, v) => { $(id).textContent = value(v); };
+            if (!token) {
+                $('profile-loading').hidden = true;
+                $('profile-status').textContent = 'Non connecté';
+                message('Votre session semble expirée ou absente. Reconnectez-vous pour consulter votre profil.', 'error');
+                return;
+            }
+            fetch('/api/my-profile', { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' } })
+                .then(async response => {
+                    if (response.status === 401 || response.status === 403) throw new Error('Accès refusé ou session expirée. Veuillez vous reconnecter.');
+                    if (!response.ok) throw new Error(`Impossible de charger le profil (HTTP ${response.status}). Vérifiez l'endpoint /api/my-profile.`);
+                    return response.json();
+                })
+                .then(result => {
+                    const p = result?.data ?? result?.profile ?? result?.member ?? result;
+                    if (!p || typeof p !== 'object') throw new Error('Les données du profil reçues sont invalides.');
+                    const first = p.firstName ?? p.prenom ?? p.firstname;
+                    const last = p.lastName ?? p.nom ?? p.lastname;
+                    const full = [first, last].filter(Boolean).join(' ').trim();
+                    set('profile-first-name', first); set('profile-last-name', last);
+                    set('profile-phone', p.phone ?? p.telephone); set('profile-commission', p.commission?.name ?? p.commissionName ?? p.commission);
+                    set('profile-filiere', p.filiere ?? p.fieldOfStudy); set('profile-promotion', p.promotion);
+                    set('profile-member-status', p.status ?? p.statut); set('profile-email', p.email);
+                    set('profile-full-name', full || p.email || 'Membre du Dahira');
+                    $('profile-initials').textContent = `${(first || 'M').charAt(0)}${(last || 'B').charAt(0)}`.toUpperCase();
+                    $('profile-status').textContent = value(p.status ?? p.statut ?? 'Membre');
+                    $('profile-loading').hidden = true; $('profile-content').hidden = false;
+                })
+                .catch(error => {
+                    $('profile-loading').hidden = true; $('profile-status').textContent = 'Indisponible';
+                    message(error.message || 'Une erreur est survenue lors du chargement du profil.', 'error');
+                });
+        })();
+    </script>
+</body>
+
+</html>

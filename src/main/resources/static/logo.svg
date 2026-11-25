@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Dahira Mafatihoul Bichri</title>
+  <desc id="desc">Emblème bleu représentant un livre et une mosquée dans un cercle.</desc>
+  <circle cx="256" cy="256" r="241" fill="#fff" stroke="#1261cf" stroke-width="14"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#1261cf" stroke-width="5"/>
+  <path fill="#1261cf" d="M256 111c-7 0-13 6-13 13v12h26v-12c0-7-6-13-13-13zm-25 34h50v13h-50zm-13 19h76v14h-76zm-16 21h108v12H202zm54-73 9-20 9 20zm-49 110 49-20 49 20v82l-49-20-49 20zm-62 61 111-25 111 25-20 21-91-18-91 18z"/>
+  <path fill="#fff" d="M207 234h98v70l-49-18-49 18z"/>
+  <path fill="#1261cf" d="M137 301c39 17 79 25 119 25s80-8 119-25l-15 63c-68 23-140 23-208 0zm25 62c62 20 126 20 188 0l28 21c-80 28-164 28-244 0z"/>
+  <path fill="#fff" d="M178 316c52 14 104 14 156 0l-7 34c-47 11-95 11-142 0z"/>
+  <text x="256" y="67" text-anchor="middle" fill="#1261cf" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="1.5">DAHIRA MAFATIHOUL BICHRI</text>
+  <text x="256" y="461" text-anchor="middle" fill="#1261cf" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2">TOUBA ISEPAT DE DIAMNIADIO</text>
+  <text x="256" y="274" text-anchor="middle" fill="#1261cf" font-family="serif" font-size="27" font-weight="700">مفاتيح البشري</text>
+</svg>

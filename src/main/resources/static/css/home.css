@@ -1,0 +1,1346 @@
+/* =========================================================
+   DAHIRA MAFATIHoul Bichri
+   Feuille de style principale : home.css
+   Design moderne avec photo de la mosquée de Touba
+========================================================= */
+
+
+/* =========================================================
+   1. RÉGLAGES GÉNÉRAUX
+========================================================= */
+
+:root {
+    --blue-dark: #103b78;
+    --blue: #1768d5;
+    --blue-light: #8fc3ff;
+    --blue-pale: #f3f7fd;
+    --gold: #d6ad55;
+    --text: #263754;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border: #e5edf8;
+    --shadow: 0 12px 35px rgba(17, 61, 118, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   2. BARRE DE NAVIGATION
+========================================================= */
+
+.navbar {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    min-height: 96px;
+    padding: 14px 4.7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8eef7;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* Logo et identité */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.brand-text strong {
+    color: #10438f;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.brand-text span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Liens de navigation */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+/* Boutons de navigation */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Boutons généraux */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 13px 24px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    color: #ffffff;
+    background: linear-gradient(135deg, #1262d8, #2b7bea);
+    box-shadow: 0 8px 22px rgba(24, 94, 190, 0.17);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 28px rgba(24, 94, 190, 0.27);
+}
+
+.btn-outline {
+    color: #075bd3;
+    background: #ffffff;
+    border-color: #cbdcf8;
+}
+
+.btn-outline:hover {
+    background: #f4f8ff;
+}
+
+.btn-white {
+    color: #10438f;
+    background: #ffffff;
+}
+
+.btn-white:hover {
+    background: #f2f6ff;
+}
+
+.btn-light {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-large {
+    min-height: 58px;
+    padding: 15px 28px;
+}
+
+/* Bouton du menu mobile */
+
+.menu-button {
+    display: none;
+    width: 45px;
+    height: 45px;
+    color: #10438f;
+    background: #f3f7fd;
+    border: 1px solid #e2eaf6;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+/* Menu mobile */
+
+.mobile-menu {
+    display: none;
+    position: relative;
+    z-index: 99;
+    padding: 15px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu a {
+    padding: 12px 0;
+    color: #334b6b;
+    font-weight: 600;
+    border-bottom: 1px solid #eef2f8;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   3. SECTION D'ACCUEIL
+   PHOTO DE LA MOSQUÉE DE TOUBA
+========================================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+
+    /*
+       IMPORTANT :
+       Place la photo dans :
+       src/main/resources/static/images/fond-mosquee.png
+
+       Le dégradé est volontairement plus léger :
+       la photo doit rester bien visible.
+    */
+
+    background-image:
+        linear-gradient(90deg,
+            rgba(5, 35, 82, 0.62) 0%,
+            rgba(8, 49, 108, 0.45) 40%,
+            rgba(9, 54, 115, 0.22) 70%,
+            rgba(8, 44, 94, 0.12) 100%),
+        url('/images/fond-mosquee.png');
+
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+}
+
+/* Lumière décorative */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+
+    background: radial-gradient(circle at 80% 20%,
+            rgba(91, 164, 255, 0.10),
+            transparent 35%);
+}
+
+/* Contenu de la section */
+
+.hero-container {
+    width: min(1600px, 100%);
+    margin: 0 auto;
+    padding: 70px 4.7%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+    align-items: center;
+    gap: 65px;
+}
+
+/* Bloc de texte */
+
+.hero-content {
+    min-width: 0;
+}
+
+/* Badge */
+
+.badge,
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 10px 18px;
+    color: #ffffff;
+    background: rgba(10, 45, 96, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.badge-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #8fc3ff;
+}
+
+/* Grand titre */
+
+.hero h1 {
+    max-width: 900px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: clamp(42px, 5.2vw, 82px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+}
+
+.hero h1 span {
+    display: block;
+    color: #9bcaff;
+}
+
+/* Sous-titre */
+
+.hero-subtitle {
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: clamp(20px, 2vw, 25px);
+    font-weight: 700;
+    line-height: 1.5;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Description */
+
+.hero-description {
+    max-width: 760px;
+    margin-bottom: 14px;
+    color: #f0f5ff;
+    font-size: 17px;
+    line-height: 1.9;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Compatibilité si le texte utilise directement .hero p */
+
+.hero-content p:not(.hero-subtitle):not(.hero-description) {
+    max-width: 760px;
+    color: #f0f5ff;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* Boutons d'accueil */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.hero-buttons a {
+    min-height: 58px;
+    padding: 15px 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-buttons .btn-primary {
+    color: #ffffff;
+    background: linear-gradient(135deg, #1267df, #2d7be9);
+}
+
+.hero-buttons .btn-white {
+    color: #12458d;
+    background: #ffffff;
+}
+
+/* Carte de présentation à droite
+   Pas d'icône : le titre apparaît directement. */
+
+.hero-card {
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 28px;
+    background: rgba(12, 48, 100, 0.38);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-card h3 {
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: clamp(24px, 2.4vw, 32px);
+    line-height: 1.35;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-card p {
+    margin-bottom: 0;
+    color: #f0f5ff;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-card-line {
+    width: 65px;
+    height: 4px;
+    margin: 25px 0;
+    border-radius: 10px;
+    background: #9bcaff;
+}
+
+.hero-card span {
+    color: #e3edff;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   4. STYLES GÉNÉRAUX DES SECTIONS
+========================================================= */
+
+.section {
+    padding: 85px 4.7%;
+}
+
+.section-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+}
+
+.section-header,
+.section-title {
+    max-width: 780px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.section-header h2,
+.section-title h2 {
+    margin-bottom: 15px;
+    color: #103f83;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.section-header p,
+.section-title p {
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   5. HISTORIQUE
+========================================================= */
+
+.history-section {
+    background: #f7faff;
+}
+
+.timeline {
+    position: relative;
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+/* Ligne verticale de la chronologie */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 27px;
+    width: 2px;
+    background: #d7e6fa;
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: relative;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1768d5, #438cf0);
+    border: 5px solid #f7faff;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(23, 104, 213, 0.2);
+}
+
+.timeline-marker span {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.timeline-card {
+    padding: 28px 30px;
+    border: 1px solid #e5edf8;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 28px rgba(20, 57, 105, 0.05);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.timeline-date {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #1768d5;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.timeline-card h3 {
+    margin-bottom: 12px;
+    color: #10438f;
+    font-size: 22px;
+}
+
+.timeline-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   6. MISSION ET VALEURS
+========================================================= */
+
+.mission-section {
+    background: #ffffff;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.value-card {
+    padding: 30px 25px;
+    border: 1px solid #e6edf7;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(17, 61, 118, 0.05);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: #c6dcfb;
+    box-shadow: 0 16px 35px rgba(17, 61, 118, 0.10);
+}
+
+/* Les icônes des cartes de valeurs sont conservées.
+   Seule l'icône de la carte d'accueil est supprimée. */
+
+.value-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    background: #edf5ff;
+    font-size: 27px;
+}
+
+.value-card h3 {
+    margin-bottom: 12px;
+    color: #10438f;
+    font-size: 20px;
+}
+
+.value-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   7. VIE ET ACTIVITÉS DU DAHIRA
+========================================================= */
+
+.activities-section {
+    background: #f5f8fd;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.activity-card {
+    position: relative;
+    overflow: hidden;
+    padding: 32px;
+    border: 1px solid #e3ebf7;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(17, 61, 118, 0.05);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.activity-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 25px;
+    color: #1768d5;
+    background: #edf5ff;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.activity-card h3 {
+    margin-bottom: 12px;
+    color: #10438f;
+    font-size: 21px;
+}
+
+.activity-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   8. ESPACE MEMBRE / CTA
+========================================================= */
+
+.cta-section {
+    position: relative;
+    overflow: hidden;
+    padding: 75px 4.7%;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0a3475, #1765c7);
+}
+
+.cta-container {
+    position: relative;
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.cta-container>div:first-child {
+    flex: 1;
+}
+
+.cta-section .section-label {
+    color: #a8ceff;
+}
+
+.cta-section h2 {
+    max-width: 750px;
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.3;
+}
+
+.cta-section p {
+    max-width: 700px;
+    margin-bottom: 0;
+    color: #d6e6fc;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.cta-actions a {
+    min-height: 52px;
+    padding: 14px 23px;
+    border-radius: 13px;
+    font-weight: 800;
+    transition: transform 0.25s ease;
+}
+
+.cta-actions a:hover {
+    transform: translateY(-3px);
+}
+
+.cta-actions .btn-white {
+    color: #10438f;
+    background: #ffffff;
+}
+
+.cta-actions .btn-light {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   9. PIED DE PAGE
+========================================================= */
+
+.footer {
+    padding: 35px 4.7%;
+    color: #d3e1f5;
+    background: #071f45;
+}
+
+.footer-container {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+.footer-brand div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.footer-brand span {
+    color: #b6c8e2;
+    font-size: 13px;
+}
+
+.footer-copy {
+    color: #9db2d0;
+    font-size: 13px;
+    text-align: center;
+}
+
+.footer-login {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.footer-login:hover {
+    color: #8fc3ff;
+}
+
+
+/* =========================================================
+   10. FORMULAIRES
+========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d6e0ef;
+    border-radius: 10px;
+    outline: none;
+    color: #263754;
+    background: #ffffff;
+    font: inherit;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2878e4;
+    box-shadow: 0 0 0 3px rgba(40, 120, 228, 0.12);
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: #334b6b;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   11. ANIMATIONS
+========================================================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.hero-card {
+    animation: fadeInUp 0.7s ease both;
+}
+
+.hero-card {
+    animation-delay: 0.15s;
+}
+
+
+/* =========================================================
+   12. TABLETTES
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .nav-container {
+        gap: 18px;
+    }
+
+    .brand img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text span {
+        font-size: 12px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .nav-actions .btn {
+        padding: 11px 16px;
+        font-size: 13px;
+    }
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 5.2vw, 64px);
+    }
+
+    .hero-card {
+        padding: 28px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================================
+   13. TÉLÉPHONES
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height: 75px;
+        padding: 12px 5%;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 46px;
+        height: 46px;
+    }
+
+    .brand-text strong {
+        font-size: 15px;
+    }
+
+    .brand-text span {
+        font-size: 11px;
+    }
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    .hero {
+        min-height: auto;
+        background-position: 58% center;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 55px 6%;
+    }
+
+    .badge,
+    .hero-badge {
+        margin-bottom: 22px;
+        padding: 8px 13px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        margin-bottom: 18px;
+        font-size: clamp(38px, 10vw, 58px);
+        letter-spacing: -1.5px;
+        line-height: 1.08;
+    }
+
+    .hero-subtitle {
+        font-size: 19px;
+    }
+
+    .hero-description,
+    .hero-content p:not(.hero-subtitle):not(.hero-description) {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        min-height: 52px;
+        padding: 13px 18px;
+        font-size: 14px;
+    }
+
+    .hero-card {
+        padding: 25px;
+        border-radius: 22px;
+    }
+
+    .hero-card h3 {
+        font-size: 24px;
+    }
+
+    .hero-card p {
+        font-size: 15px;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .section-header,
+    .section-title {
+        margin-bottom: 35px;
+    }
+
+    .section-header h2,
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .timeline::before {
+        left: 21px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .timeline-marker {
+        width: 44px;
+        height: 44px;
+        border-width: 3px;
+    }
+
+    .timeline-card {
+        padding: 22px;
+        border-radius: 17px;
+    }
+
+    .timeline-card h3 {
+        font-size: 19px;
+    }
+
+    .values-grid,
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .value-card,
+    .activity-card {
+        padding: 25px;
+    }
+
+    .cta-section {
+        padding: 55px 6%;
+    }
+
+    .cta-container {
+        gap: 28px;
+    }
+
+    .cta-section h2 {
+        font-size: 30px;
+    }
+
+    .cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cta-actions a {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 35px 6% 25px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .footer-copy {
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   14. PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand-text strong {
+        max-width: 190px;
+        font-size: 13px;
+    }
+
+    .brand-text span {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        padding: 20px;
+    }
+
+    .section-header h2,
+    .section-title h2 {
+        font-size: 27px;
+    }
+}
+
+
+/* =========================================================
+   15. ACCESSIBILITÉ
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #edf5ff;
+}
+
+.value-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================================
+   16. CARTE HERO PLUS PETITE ET ÉLÉGANTE
+========================================================= */
+
+.hero-card {
+    max-width: 360px;
+    justify-self: center;
+    padding: 22px;
+    border-radius: 22px;
+}
+
+/* Image plus petite */
+.hero-card-image {
+    width: 140px;
+    height: 85px;
+    margin: 0 auto 14px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hero-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Titre */
+.hero-card h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+/* Description */
+.hero-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Ligne décorative */
+.hero-card-line {
+    width: 45px;
+    height: 3px;
+    margin: 16px 0;
+}
+
+/* Nom du Dahira */
+.hero-card>span {
+    font-size: 12px;
+}
+
+/* Adaptation aux téléphones */
+@media (max-width: 760px) {
+    .hero-card {
+        width: 100%;
+        max-width: 320px;
+        padding: 20px;
+    }
+
+    .hero-card-image {
+        width: 125px;
+        height: 75px;
+    }
+
+    .hero-card h3 {
+        font-size: 19px;
+    }
+}

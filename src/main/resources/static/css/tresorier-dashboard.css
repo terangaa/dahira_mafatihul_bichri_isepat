@@ -1,0 +1,120 @@
+@import url("/css/admin-principal-dashboard.css");
+
+/* =========================================================
+   ADAPTATIONS DE L'ESPACE TRÉSORIER (THÈME BLEU)
+   ========================================================= */
+
+:root {
+    --primary: #1261cf;
+    --primary-dark: #063b91;
+    --primary-light: #eff6ff;
+    --success: #1261cf;
+    /* On redéfinit "success" en bleu pour éviter les conflits */
+}
+
+/* Profil dans la sidebar */
+.sidebar-profile {
+    background: #eff6ff;
+    border-color: #dbeafe;
+}
+
+.profile-avatar {
+    background: linear-gradient(135deg, #1261cf, #7545d8);
+}
+
+.profile-details span {
+    color: #1261cf;
+}
+
+/* Bloc de sécurité */
+.sidebar-security {
+    background: #eff6ff;
+}
+
+.sidebar-security>span {
+    color: #1261cf;
+}
+
+/* Lien actif du menu */
+.nav-link.active {
+    background: linear-gradient(100deg, #1261cf, #7545d8);
+    box-shadow: 0 5px 13px rgba(18, 97, 207, 0.18);
+}
+
+/* Bouton Actualiser */
+.refresh-button {
+    background: #1261cf;
+}
+
+.refresh-button:hover {
+    background: #063b91;
+}
+
+/* Petit texte au-dessus des titres */
+.section-eyebrow {
+    color: #1261cf;
+}
+
+/* Grande carte "Total encaissé" */
+.financial-total-card {
+    background: linear-gradient(115deg, #063b91, #1261cf 70%, #4b89ff);
+    box-shadow: 0 12px 25px rgba(18, 97, 207, 0.16);
+}
+
+/* Badge "Montants en FCFA" */
+.financial-badge {
+    color: #1261cf;
+    background: #eff6ff;
+}
+
+/* Cartes d'accès rapide au survol */
+.quick-card:hover {
+    border-color: #a9cfff;
+}
+
+.quick-arrow {
+    color: #1261cf;
+}
+
+/* Texte du footer */
+.dashboard-footer span {
+    color: #1261cf;
+}
+
+/* =========================================================
+   CORRECTION DES ICÔNES ET CARTES QUI ÉTAIENT VERTES
+   ========================================================= */
+
+/* Les icônes "collected" (encaissé) qui étaient vertes */
+.financial-icon.collected {
+    color: #1261cf;
+    background: #eff6ff;
+}
+
+/* Les icônes "remaining" (restant) qui étaient orange/vertes */
+.financial-icon.remaining {
+    color: #d98216;
+    background: #fff4e5;
+}
+
+/* La carte "Projets" qui utilisait la classe green-card */
+.stat-card.green-card {
+    /* On la passe en bleu clair ou on la laisse neutre, 
+       mais on s'assure que l'icône est bleue */
+    border-color: #dbeafe;
+}
+
+.stat-card.green-card .stat-icon {
+    color: #1261cf;
+    background: #eff6ff;
+}
+
+.stat-card.green-card .stat-label {
+    color: #1261cf;
+}
+
+/* L'icône "Gestion financière" dans les accès rapides */
+.quick-icon.green {
+    color: #1261cf;
+    background: #eff6ff;
+}

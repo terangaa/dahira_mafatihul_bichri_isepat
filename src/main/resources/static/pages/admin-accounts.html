@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestion des comptes | Dahira MB</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-accounts.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-logo">MB</div>
+
+                <div>
+                    <h2>Dahira MB</h2>
+                    <span>Touba ISEPAT</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="../dashboard.html" class="nav-link">
+                    <span>⌂</span> Tableau de bord
+                </a>
+
+                <a href="members.html" class="nav-link">
+                    <span>♙</span> Gestion des membres
+                </a>
+
+                <a href="commissions.html" class="nav-link">
+                    <span>♧</span> Commissions
+                </a>
+
+                <a href="events.html" class="nav-link">
+                    <span>▦</span> Événements
+                </a>
+
+                <a href="finance.html" class="nav-link">
+                    <span>▤</span> Finances
+                </a>
+
+                <a href="admin-accounts.html" class="nav-link active">
+                    <span>⚙</span> Gestion des comptes
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar">A</div>
+
+                    <div>
+                        <strong>Administration</strong>
+                        <small>Administrateur principal</small>
+                    </div>
+                </div>
+
+                <button id="logout-btn" class="logout-btn">
+                    ↪ Déconnexion
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="page-header">
+
+                <div>
+                    <span class="breadcrumb">
+                        Administration / Comptes
+                    </span>
+
+                    <h1>Gestion des comptes</h1>
+
+                    <p>
+                        Gérez les accès, les utilisateurs et les responsabilités
+                        de votre plateforme.
+                    </p>
+                </div>
+
+                <button id="refresh-btn" class="btn-secondary">
+                    ↻ Actualiser
+                </button>
+
+            </header>
+
+
+            <!-- MESSAGE -->
+            <div id="app-message" class="app-message hidden"></div>
+
+
+            <!-- STATISTIQUES -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon blue">♙</div>
+
+                    <div>
+                        <span>Total des comptes</span>
+                        <h2 id="total-accounts">0</h2>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green">✓</div>
+
+                    <div>
+                        <span>Comptes membres</span>
+                        <h2 id="member-accounts">0</h2>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon purple">♔</div>
+
+                    <div>
+                        <span>Comptes administrateurs</span>
+                        <h2 id="admin-accounts">0</h2>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+
+                    <div>
+                        <span>Sans compte</span>
+                        <h2 id="without-account">0</h2>
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- ROLE INFORMATION -->
+            <section class="authority-card">
+
+                <div class="authority-icon">♔</div>
+
+                <div>
+                    <h3>Espace de l'administrateur principal</h3>
+
+                    <p>
+                        Vous disposez du contrôle des comptes et des attributions
+                        de rôles sur la plateforme.
+                    </p>
+                </div>
+
+                <span class="authority-badge">
+                    ADMIN_PRINCIPAL
+                </span>
+
+            </section>
+
+
+            <!-- TABLE -->
+            <section class="accounts-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Liste des comptes</h2>
+
+                        <p>
+                            Consultez et gérez les accès des membres.
+                        </p>
+                    </div>
+
+                    <button id="create-account-btn" class="btn-primary">
+                        + Créer un compte
+                    </button>
+
+                </div>
+
+
+                <!-- FILTERS -->
+                <div class="filters-container">
+
+                    <div class="search-box">
+                        <span>⌕</span>
+
+                        <input type="search" id="search-account" placeholder="Rechercher un membre ou un email...">
+                    </div>
+
+                    <select id="filter-role">
+                        <option value="">Tous les rôles</option>
+                        <option value="MEMBER">Membre</option>
+                        <option value="ADMINISTRATEUR">Administrateur</option>
+                        <option value="TRESORIER">Trésorier</option>
+                        <option value="ADMIN_PRINCIPAL">Administrateur principal</option>
+                    </select>
+
+                    <select id="filter-account">
+                        <option value="">Tous les comptes</option>
+                        <option value="WITH_ACCOUNT">Avec compte</option>
+                        <option value="WITHOUT_ACCOUNT">Sans compte</option>
+                    </select>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-wrapper">
+
+                    <table class="accounts-table">
+
+                        <thead>
+                            <tr>
+                                <th>Membre</th>
+                                <th>Email</th>
+                                <th>Rôle</th>
+                                <th>Responsabilité</th>
+                                <th>Compte</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="accounts-table-body">
+
+                            <tr>
+                                <td colspan="6" class="loading-cell">
+                                    Chargement des comptes...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="table-footer">
+                    <span id="results-count">0 compte(s)</span>
+                </div>
+
+            </section>
+
+
+            <footer class="page-footer">
+                Dahira Mafatihoul Bichri — Touba ISEPAT de Diamniadio
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- MODAL COMPTE -->
+    <div id="account-modal" class="modal-overlay hidden">
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-eyebrow">Administration</span>
+                    <h2 id="modal-title">Créer un compte</h2>
+                </div>
+
+                <button id="close-modal" class="close-modal">
+                    &times;
+                </button>
+
+            </div>
+
+
+            <form id="account-form">
+
+                <input type="hidden" id="account-member-id">
+
+                <div class="form-group">
+
+                    <label for="member-select">
+                        Membre concerné
+                    </label>
+
+                    <select id="member-select" required>
+                        <option value="">Sélectionner un membre</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="account-email">
+                        Adresse email
+                    </label>
+
+                    <input type="email" id="account-email" placeholder="exemple@email.com" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="account-password">
+                        Mot de passe
+                    </label>
+
+                    <input type="password" id="account-password" placeholder="Mot de passe">
+
+                    <small id="password-help">
+                        Obligatoire lors de la création.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="account-role">
+                        Rôle principal
+                    </label>
+
+                    <select id="account-role" required>
+
+                        <option value="MEMBER">MEMBER — Membre</option>
+
+                        <option value="ADMIN">
+                            ADMIN — Administrateur
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group hidden" id="admin-role-container">
+
+                    <label for="admin-role">
+                        Responsabilité administrative
+                    </label>
+
+                    <select id="admin-role">
+
+                        <option value="">Sélectionner une responsabilité</option>
+
+                        <option value="ADMINISTRATEUR">
+                            Administrateur
+                        </option>
+
+                        <option value="TRESORIER">
+                            Trésorier
+                        </option>
+
+                        <option value="ADMIN_PRINCIPAL">
+                            Administrateur principal
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button type="button" id="cancel-modal" class="btn-cancel">
+                        Annuler
+                    </button>
+
+                    <button type="submit" id="save-account-btn" class="btn-primary">
+                        Enregistrer
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/admin-accounts.js"></script>
+
+</body>
+
+</html>

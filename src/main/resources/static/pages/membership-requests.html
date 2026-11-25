@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1261cf">
+    <meta name="description" content="Gestion et validation des demandes d'adhésion au Dahira Mafatihoul Bichri.">
+
+    <title>Demandes d'adhésion | Dahira Mafatihoul Bichri</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/membership-requests.css">
+</head>
+
+<body>
+
+    <main class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <img src="/image.png" alt="Logo Dahira Mafatihoul Bichri" class="sidebar-logo">
+
+                <div>
+                    <strong>Mafatihoul</strong>
+                    <span>Bichri · Diamniadio</span>
+                </div>
+            </div>
+
+            <nav class="main-nav" aria-label="Navigation principale">
+
+                <div class="nav-group-title">PRINCIPAL</div>
+
+                <a class="nav-item" href="index.html">
+                    <span class="nav-icon">⌂</span>
+                    <span>Vue d'ensemble</span>
+                </a>
+
+                <a class="nav-item admin-only" href="members.html">
+                    <span class="nav-icon">♙</span>
+                    <span>Membres</span>
+                </a>
+
+                <a class="nav-item active admin-only" href="membership-requests.html" aria-current="page">
+                    <span class="nav-icon">✉</span>
+                    <span>Demandes d'adhésion</span>
+                    <span id="sidebar-pending-count" class="sidebar-count hidden">0</span>
+                </a>
+
+                <a class="nav-item admin-only" href="commissions.html">
+                    <span class="nav-icon">◎</span>
+                    <span>Commissions</span>
+                </a>
+
+                <a class="nav-item admin-only" href="projects.html">
+                    <span class="nav-icon">⌁</span>
+                    <span>Projets</span>
+                </a>
+
+                <div class="nav-group-title">ACTIVITÉS</div>
+
+                <a class="nav-item" href="events.html">
+                    <span class="nav-icon">◷</span>
+                    <span>Événements</span>
+                </a>
+
+                <a class="nav-item" href="finance.html">
+                    <span class="nav-icon">◫</span>
+                    <span>Finances</span>
+                </a>
+
+                <a class="nav-item admin-only" href="contributions.html">
+                    <span class="nav-icon">◇</span>
+                    <span>Contributions</span>
+                </a>
+
+                <a class="nav-item" href="history.html">
+                    <span class="nav-icon">◷</span>
+                    <span>Histoire</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="quote">
+                    « La régularité construit les grandes choses. »
+                </div>
+
+                <button class="logout-button" id="logout-button" type="button">
+                    <span>Quitter la session</span>
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <section class="content-area">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <button class="menu-button" id="menu-button" type="button" aria-label="Ouvrir le menu">
+                    ☰
+                </button>
+
+                <div class="topbar-title">
+                    <p class="eyebrow">ADMINISTRATION DU DAHIRA</p>
+                    <h2>Demandes d'adhésion</h2>
+                </div>
+
+                <div class="user-chip">
+                    <span class="avatar" id="user-avatar">AD</span>
+
+                    <span>
+                        <strong id="user-email">Administrateur</strong>
+                        <small id="user-role">Gestion des adhésions</small>
+                    </span>
+                </div>
+
+            </header>
+
+            <div id="app-message" class="app-message hidden" role="status" aria-live="polite"></div>
+
+            <!-- PAGE -->
+            <section class="page-section membership-page">
+
+                <!-- HERO -->
+                <div class="membership-hero">
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            <span class="hero-label-dot"></span>
+                            ESPACE ADMINISTRATEUR
+                        </span>
+
+                        <h1>Gestion des adhésions</h1>
+
+                        <p>
+                            Examinez les candidatures, consultez les informations
+                            des postulants et validez leur admission au sein
+                            du Dahira Mafatihoul Bichri.
+                        </p>
+
+                        <div class="hero-meta">
+                            <span>✦</span>
+                            Une communauté fondée sur l'engagement et la régularité.
+                        </div>
+
+                    </div>
+
+                    <div class="hero-decoration" aria-hidden="true">
+                        <div class="hero-circle circle-one"></div>
+                        <div class="hero-circle circle-two"></div>
+                        <div class="hero-icon">✉</div>
+                    </div>
+
+                    <button id="refresh-requests" class="refresh-button" type="button">
+                        <span>↻</span>
+                        Actualiser
+                    </button>
+
+                </div>
+
+                <!-- STATISTIQUES -->
+                <div class="request-stats">
+
+                    <article class="request-stat-card stat-pending">
+                        <div class="stat-top">
+                            <span class="stat-icon">◷</span>
+                            <span class="stat-caption">À examiner</span>
+                        </div>
+
+                        <div class="stat-information">
+                            <strong id="pending-count">—</strong>
+                            <span>Demandes en attente</span>
+                        </div>
+                    </article>
+
+                    <article class="request-stat-card stat-displayed">
+                        <div class="stat-top">
+                            <span class="stat-icon">▤</span>
+                            <span class="stat-caption">Consultation</span>
+                        </div>
+
+                        <div class="stat-information">
+                            <strong id="displayed-count">—</strong>
+                            <span>Candidatures affichées</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- LISTE DES CANDIDATURES -->
+                <article class="content-card requests-card">
+
+                    <div class="requests-header">
+
+                        <div class="requests-heading">
+                            <span class="section-icon">✉</span>
+
+                            <div>
+                                <h2>Candidatures reçues</h2>
+                                <p>Consultez les demandes avant de prendre une décision.</p>
+                            </div>
+                        </div>
+
+                        <span class="pending-badge">
+                            <span class="pending-indicator"></span>
+                            En attente de décision
+                        </span>
+
+                    </div>
+
+                    <!-- RECHERCHE -->
+                    <div class="request-toolbar">
+
+                        <div class="search-container">
+
+                            <label for="request-search">
+                                Rechercher un candidat
+                            </label>
+
+                            <div class="search-input-wrapper">
+                                <span class="search-icon">⌕</span>
+
+                                <input id="request-search" type="search" placeholder="Nom, prénom, email, téléphone..."
+                                    autocomplete="off">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CHARGEMENT -->
+                    <div id="requests-loading" class="requests-feedback">
+                        <span class="loading-spinner"></span>
+                        <p>Chargement des demandes d'adhésion...</p>
+                    </div>
+
+                    <!-- ERREUR -->
+                    <div id="requests-error" class="requests-feedback error-feedback hidden" role="alert">
+
+                        <span class="feedback-icon">!</span>
+
+                        <p id="requests-error-text">
+                            Impossible de charger les demandes.
+                        </p>
+
+                        <button id="retry-requests" type="button">
+                            Réessayer
+                        </button>
+
+                    </div>
+
+                    <!-- AUCUNE DEMANDE -->
+                    <div id="requests-empty" class="requests-feedback hidden">
+
+                        <span class="empty-icon">✓</span>
+
+                        <h3>Aucune demande en attente</h3>
+
+                        <p>
+                            Toutes les candidatures ont été traitées.
+                            Les nouvelles demandes apparaîtront ici.
+                        </p>
+
+                    </div>
+
+                    <!-- AUCUN RÉSULTAT -->
+                    <div id="requests-no-results" class="requests-feedback hidden">
+
+                        <span class="empty-icon">⌕</span>
+
+                        <h3>Aucun résultat trouvé</h3>
+
+                        <p>
+                            Essayez avec un autre nom ou une autre recherche.
+                        </p>
+
+                    </div>
+
+                    <!-- LISTE DYNAMIQUE -->
+                    <div id="requests-list" class="requests-list" aria-live="polite"></div>
+
+                    <!-- FOOTER -->
+                    <div class="requests-footer">
+
+                        <span id="requests-footer-count">
+                            Chargement...
+                        </span>
+
+                        <span class="footer-security">
+                            🔒 Données sécurisées
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- NOTE DE SÉCURITÉ -->
+                <div class="security-notice">
+
+                    <span class="security-icon">🔐</span>
+
+                    <div>
+                        <strong>Décisions administratives sécurisées</strong>
+
+                        <p>
+                            Chaque décision d'admission est enregistrée par le serveur.
+                            Veuillez vérifier les informations avant toute validation.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- DIALOGUE DE CONFIRMATION -->
+    <dialog id="decision-dialog" class="decision-dialog">
+
+        <form method="dialog" id="decision-form">
+
+            <div class="dialog-content">
+
+                <div class="dialog-icon" id="dialog-icon">✓</div>
+
+                <span class="dialog-eyebrow">GESTION DES ADHÉSIONS</span>
+
+                <h2 id="dialog-title">Confirmer la décision</h2>
+
+                <p id="dialog-description"></p>
+
+                <div class="dialog-candidate" id="dialog-candidate"></div>
+
+                <div class="dialog-actions">
+
+                    <button type="button" id="cancel-decision" class="dialog-cancel">
+                        Annuler
+                    </button>
+
+                    <button type="button" id="confirm-decision" class="dialog-confirm">
+                        Confirmer
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/membership-requests.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+/* Navigation partagée entre les pages */
+.sidebar { flex-shrink: 0; }
+.main-nav .nav-item { text-decoration: none; }
+.main-nav a.nav-item { display: flex; align-items: center; gap: 12px; }
+.main-nav .nav-item.active { font-weight: 700; }
+.content-area { min-width: 0; width: 100%; }
