@@ -31,8 +31,6 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    int nombre = "Bonjour";
-
     @NotBlank(message = "Le prénom est obligatoire")
     @Column(nullable = false)
     private String firstName;
