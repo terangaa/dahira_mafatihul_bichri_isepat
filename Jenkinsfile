@@ -121,3 +121,5 @@ pipeline {
         }
     }
 }
+// Test CI/CD - Branche gestion des finances
+// Test CI/CD - Branche gestion des finances
